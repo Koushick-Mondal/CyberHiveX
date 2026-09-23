@@ -1,0 +1,82 @@
+:root {
+  /* Brand Color Palette */
+  --bg-deep: #05070A;
+  --bg-surface: #070B12;
+  --bg-navy: #0B1220;
+  --bg-navy-elevated: #0F1A2E;
+  --bg-card: rgba(11, 18, 32, 0.7);
+  --bg-card-hover: rgba(15, 26, 46, 0.85);
+  --bg-glass: rgba(7, 11, 18, 0.75);
+  --bg-glass-heavy: rgba(5, 7, 10, 0.92);
+
+  /* Primary Electric Cyan System */
+  --cyan-electric: #00F3FF;
+  --cyan-bright: #33F6FF;
+  --cyan-deep: #00A3FF;
+  --cyan-glow: rgba(0, 243, 255, 0.35);
+  --cyan-glow-intense: rgba(0, 243, 255, 0.75);
+  --cyan-tint: rgba(0, 243, 255, 0.08);
+  --cyan-tint-medium: rgba(0, 243, 255, 0.15);
+
+  /* Tactical Threat Palette (Restrained for Incursions Only) */
+  --threat-crimson: #FF3366;
+  --threat-crimson-glow: rgba(255, 51, 102, 0.45);
+  --threat-amber: #FF9900;
+  --threat-amber-glow: rgba(255, 153, 0, 0.4);
+
+  /* Defensive Status Palette */
+  --defense-active: #00FFAA;
+  --defense-active-glow: rgba(0, 255, 170, 0.4);
+  --defense-analyzing: #00D4FF;
+  --defense-locked: #88B4E8;
+
+  /* Typography Colors */
+  --text-white: #FFFFFF;
+  --text-cool-white: #E2F1FF;
+  --text-secondary: #94A3B8;
+  --text-dim: #64748B;
+  --text-muted: #475569;
+
+  /* Borders & Dividers */
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-glass: rgba(0, 243, 255, 0.15);
+  --border-active: rgba(0, 243, 255, 0.6);
+  --border-threat: rgba(255, 51, 102, 0.5);
+
+  /* Typography Stack */
+  --font-cyber: 'Orbitron', 'Space Grotesk', -apple-system, sans-serif;
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+  /* Elevation Shadows & Glows */
+  --glow-cyan-sm: 0 0 15px rgba(0, 243, 255, 0.25);
+  --glow-cyan-md: 0 0 30px rgba(0, 243, 255, 0.35);
+  --glow-cyan-lg: 0 0 60px rgba(0, 243, 255, 0.45);
+  --glow-threat-sm: 0 0 15px rgba(255, 51, 102, 0.35);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.35), 0 0 15px rgba(0, 243, 255, 0.05);
+  --shadow-glass: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 243, 255, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  /* Layout & Geometry */
+  --container-max: 1360px;
+  --header-height: 80px;
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --ease-tactical: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 150ms var(--ease-tactical);
+  --transition-normal: 250ms var(--ease-tactical);
+  --transition-slow: 400ms var(--ease-tactical);
+
+  /* Z-Index Hierarchy */
+  --z-bg: 0;
+  --z-canvas: 1;
+  --z-content: 10;
+  --z-hud: 20;
+  --z-header: 100;
+  --z-modal: 1000;
+  --z-cursor: 9999;
+}

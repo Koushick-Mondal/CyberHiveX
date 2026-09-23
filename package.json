@@ -1,0 +1,15 @@
+{
+  "name": "cyberhivex-technology",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "CyberHiveX Technology - Next-Generation AI-Powered Cybersecurity & Digital Trust Infrastructure",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}

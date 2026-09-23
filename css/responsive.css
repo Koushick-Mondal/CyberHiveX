@@ -1,0 +1,786 @@
+/* ==========================================================================
+   CYBERHIVEX TECHNOLOGY — RESPONSIVE & MOBILE STYLESHEET
+   Comprehensive multi-tier responsiveness for Mobile, Tablet & Desktop
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. MOBILE NAVIGATION DRAWER & BACKDROP
+   -------------------------------------------------------------------------- */
+.mobile-nav-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 4, 8, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-nav-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.mobile-nav-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 340px;
+  height: 100dvh;
+  height: 100vh;
+  background: rgba(6, 10, 18, 0.98);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-left: 1px solid rgba(0, 243, 255, 0.25);
+  z-index: 1000;
+  padding: 1.5rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: right 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: -20px 0 60px rgba(0, 0, 0, 0.95);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-nav-drawer.open {
+  right: 0;
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.15rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.mobile-drawer-header .brand-logo-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+.mobile-drawer-header .brand-logo-subtitle {
+  font-size: 0.58rem;
+  letter-spacing: 0.22em;
+  color: var(--cyan-electric);
+  margin-top: 2px;
+}
+
+.mobile-nav-close {
+  background: rgba(0, 243, 255, 0.08);
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  border-radius: var(--radius-sm);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cyan-electric);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mobile-nav-close:hover,
+.mobile-nav-close:active {
+  background: rgba(0, 243, 255, 0.25);
+  border-color: var(--cyan-electric);
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.5);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.mobile-nav-link {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-white);
+  display: block;
+  padding: 0.35rem 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+  touch-action: manipulation;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+  color: var(--cyan-electric);
+  transform: translateX(6px);
+}
+
+.mobile-drawer-footer {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. DESKTOP LARGE & LAPTOPS (<= 1200px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .nav-menu {
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.5rem;
+    letter-spacing: 0.04em;
+  }
+
+  .header-actions {
+    gap: 0.65rem;
+  }
+
+  .dashboard-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .architecture-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .use-cases-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .labs-research-domains {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. SMALL LAPTOPS & TABLETS LANDSCAPE (<= 1080px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1080px) {
+  .nav-menu-wrapper {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    touch-action: manipulation;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   4. TABLETS PORTRAIT (<= 992px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  :root {
+    --header-height: 72px;
+  }
+
+  /* Typography Scaling */
+  .section-title {
+    font-size: clamp(1.85rem, 4.5vw, 2.75rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Hero Section */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .hero-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-telemetry-strip {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem 2.5rem;
+  }
+
+  .hero-visual-wrapper {
+    max-width: 460px;
+    margin: 0 auto;
+  }
+
+  /* Section 6: Unified Architecture */
+  .approach-architecture-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .approach-core-graphic {
+    position: static;
+    top: 0;
+    height: 440px;
+  }
+
+  .approach-pillars-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  /* Section 7: Tactical Doctrine */
+  .think-stages-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .stage-card {
+    padding: 2rem 1.75rem;
+  }
+
+  .doctrine-canvas-container {
+    height: 270px;
+  }
+
+  /* Section 8: AI Cyber Defense Pipeline */
+  .pipeline-flow {
+    flex-direction: column;
+    gap: 2.25rem;
+    align-items: center;
+  }
+
+  .pipeline-flow::before {
+    top: 4%;
+    bottom: 4%;
+    left: 50%;
+    right: auto;
+    width: 2px;
+    height: 92%;
+    transform: translateX(-50%);
+  }
+
+  .pipeline-node {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .pipeline-canvas-container {
+    height: 270px;
+  }
+
+  /* Section 9: Digital Trust */
+  .trust-hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .trust-visual-enclosure {
+    height: 420px;
+  }
+
+  /* Section 11: Threat Visualizer */
+  .threat-canvas-container {
+    height: 440px;
+  }
+
+  .threat-visualizer-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+
+  .threat-simulation-controls {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .threat-stage-indicator-bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .threat-solution-drawer {
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+
+  /* Section 12: Command Center */
+  .dashboard-lower-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Section 14: India Section */
+  .india-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .india-map-container {
+    height: 380px;
+  }
+
+  /* Section 15: Why CyberHiveX */
+  .why-canvas-container {
+    height: 270px;
+  }
+
+  /* Footer */
+  .footer-top-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. MOBILE DEVICES (<= 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --header-height: 68px;
+  }
+
+  /* Container Spacing */
+  .container,
+  .container-wide {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  /* Header & Navigation on Mobile */
+  .nav-container {
+    padding: 0 1rem;
+    gap: 0.75rem;
+  }
+
+  .header-actions {
+    gap: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  #sound-toggle-label {
+    display: none !important;
+  }
+
+  .sound-toggle-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+  }
+
+  .header-actions .trigger-contact-modal {
+    display: none !important;
+  }
+
+  .mobile-menu-toggle {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+  }
+
+  /* Section Grids collapsed to single column */
+  .architecture-cards-grid,
+  .use-cases-grid,
+  .why-grid,
+  .articles-grid,
+  .approach-pillars-list,
+  .labs-research-domains {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .dashboard-metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Canvas Containers Scaling */
+  .problem-canvas-container,
+  .india-map-container,
+  .threat-canvas-container,
+  .pipeline-canvas-container,
+  .doctrine-canvas-container,
+  .why-canvas-container {
+    height: 280px;
+  }
+
+  .approach-core-graphic {
+    height: 340px;
+    padding: 1rem;
+  }
+
+  .trust-visual-enclosure {
+    height: 320px;
+  }
+
+  .hero-visual-wrapper {
+    max-width: 340px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  /* Hero Section */
+  .hero-headline {
+    font-size: clamp(1.9rem, 6.5vw, 2.75rem);
+  }
+
+  .hero-headline-sub {
+    font-size: clamp(2.4rem, 8.5vw, 3.8rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-telemetry-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding-top: 1.25rem;
+  }
+
+  .hero-telemetry-value {
+    font-size: 1.05rem;
+    justify-content: center;
+  }
+
+  .hero-telemetry-label {
+    font-size: 0.62rem;
+  }
+
+  /* Section 5 Attack Surface Controls */
+  .problem-map-controls {
+    position: absolute;
+    bottom: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .problem-map-controls .btn {
+    width: 100%;
+    font-size: 0.72rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  .surface-hud-banner {
+    top: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.68rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  /* Section 6 Pillar Cards on Mobile */
+  .pillar-card {
+    padding: 1.15rem 1.15rem;
+  }
+
+  .pillar-title {
+    font-size: 0.92rem;
+  }
+
+  .pillar-badge {
+    font-size: 0.58rem;
+  }
+
+  .pillar-actions-row {
+    flex-direction: column;
+  }
+
+  .pillar-actions-row .btn {
+    width: 100%;
+  }
+
+  /* Section 9 Digital Trust Interrogation Cards */
+  .interrogation-question-card {
+    padding: 1rem 1.15rem;
+  }
+
+  .question-text {
+    font-size: 0.82rem;
+  }
+
+  .question-status-badge {
+    font-size: 0.62rem;
+  }
+
+  /* Section 11 Threat Visualizer HUD */
+  .threat-telemetry-hud-overlay {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+    padding: 0.5rem 0.85rem;
+    font-size: 0.7rem;
+  }
+
+  .threat-solution-drawer {
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0.75rem;
+    max-width: calc(100% - 1.5rem);
+    padding: 1rem 1.15rem;
+  }
+
+  .solution-target-title {
+    font-size: 1rem;
+  }
+
+  .solution-desc {
+    font-size: 0.8rem;
+    line-height: 1.45;
+  }
+
+  /* Section 12 Command Center Terminal */
+  .dashboard-terminal-stream {
+    max-height: 200px;
+    font-size: 0.7rem;
+  }
+
+  /* Final CTA Section */
+  .final-cta-container {
+    padding: 3rem 1.5rem;
+  }
+
+  .final-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.85rem;
+  }
+
+  .final-cta-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer on Mobile */
+  .footer-top-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .footer-bottom-bar {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  /* Modal Windows */
+  .modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .modal-content {
+    max-height: 90vh;
+    border-radius: var(--radius-sm);
+  }
+
+  .modal-header {
+    padding: 1.1rem 1.25rem;
+  }
+
+  .modal-title {
+    font-size: 1.1rem;
+  }
+
+  .modal-body {
+    padding: 1.25rem;
+  }
+
+  .dossier-pipeline-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dossier-pipe-step::after {
+    display: none;
+  }
+
+  .dossier-specs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dossier-status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .dossier-footer-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dossier-footer-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. SMALL MOBILE SCREENS (<= 480px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 480px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .brand-logo-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .brand-logo-title {
+    font-size: 1.05rem;
+  }
+
+  .brand-logo-subtitle {
+    display: none;
+  }
+
+  .header-actions .trigger-contact-modal {
+    padding: 0.35rem 0.65rem;
+    font-size: 0.68rem;
+  }
+
+  .hero-telemetry-strip {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 0.85rem;
+  }
+
+  .think-headline-row {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 1.4rem;
+  }
+
+  .think-phrase {
+    font-size: 1.35rem;
+  }
+
+  .interrogation-question-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+
+  .pillar-metrics-chips {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .problem-canvas-container,
+  .india-map-container,
+  .threat-canvas-container,
+  .pipeline-canvas-container,
+  .doctrine-canvas-container,
+  .why-canvas-container {
+    height: 240px;
+  }
+
+  .approach-core-graphic {
+    height: 300px;
+  }
+
+  .trust-visual-enclosure {
+    height: 280px;
+  }
+
+  .hero-visual-wrapper {
+    max-width: 280px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    height: auto;
+  }
+
+  .threat-simulation-controls .btn {
+    width: 100%;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. ULTRA-SMALL DEVICES (<= 360px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 360px) {
+  .hero-headline {
+    font-size: 1.75rem;
+  }
+
+  .hero-headline-sub {
+    font-size: 2.2rem;
+  }
+
+  .header-actions .trigger-contact-modal span {
+    font-size: 0.62rem;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. ACCESSIBILITY: REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

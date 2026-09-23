@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security Resources & The CyberHiveX Signal | CyberHiveX Technologies</title>
+  <meta name="description"
+    content="Technical threat research, cybersecurity advisories, adversarial AI papers, and front-line insights from CyberHiveX Technologies threat hunters.">
+  <link rel="icon" type="image/svg+xml" href="/assets/cyberhivex-logo-Bb-voC_C.svg">
+
+  <script type="module" crossorigin src="/assets/main-BThbFmym.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/main-BgF6Y5v1.css">
+</head>
+
+<body>
+  <div id="cursor-spotlight" aria-hidden="true"></div>
+
+  <!-- Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo" aria-label="CyberHiveX Technologies Home">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNoeC1ncmFkLWN5YW4iIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBGM0ZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDBBM0ZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNTFGRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iY2h4LWdyYWQtZ2xvdyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBGM0ZGIiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMEYzRkYiIHN0b3Atb3BhY2l0eT0iMC4xIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iY2h4LWdsb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIHJlc3VsdD0iYmx1ciIgLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIiAvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIDwhLS0gT3V0ZXIgVGVjaG5pY2FsIFJpbmcgU2VnbWVudHMgLS0+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjEiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1kYXNoYXJyYXk9IjggNiAxOCA2IiAvPgogIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjE3IiBzdHJva2U9IiMwMEYzRkYiIHN0cm9rZS1vcGFjaXR5PSIwLjM1IiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLWRhc2hhcnJheT0iNCA0IiAvPgogIAogIDwhLS0gT3V0ZXIgU2hpZWxkIEhleCBTdHJ1Y3R1cmUgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIyNCw1IDQxLDE0IDQxLDMxIDI0LDQzIDcsMzEgNywxNCIgc3Ryb2tlPSJ1cmwoI2NoeC1ncmFkLWN5YW4pIiBzdHJva2Utd2lkdGg9IjEuOCIgZmlsbD0ibm9uZSIgZmlsdGVyPSJ1cmwoI2NoeC1nbG93KSIvPgogIAogIDwhLS0gQW5ndWxhciBIdW50aW5nIENyb3NzaGFpcnMgLS0+CiAgPGxpbmUgeDE9IjI0IiB5MT0iMiIgeDI9IjI0IiB5Mj0iOSIgc3Ryb2tlPSIjMDBGM0ZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz4KICA8bGluZSB4MT0iMjQiIHkxPSIzOSIgeDI9IjI0IiB5Mj0iNDYiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgPGxpbmUgeDE9IjIiIHkxPSIyNCIgeDI9IjkiIHkyPSIyNCIgc3Ryb2tlPSIjMDBGM0ZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz4KICA8bGluZSB4MT0iMzkiIHkxPSIyNCIgeDI9IjQ2IiB5Mj0iMjQiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgCiAgPCEtLSBUaGUgQWdncmVzc2l2ZSAnWCcgSW50ZXJjZXB0b3IgV2luZ3MgLS0+CiAgPHBhdGggZD0iTTE1IDE1IEwzMyAzMyIgc3Ryb2tlPSJ1cmwoI2NoeC1ncmFkLWN5YW4pIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiAvPgogIDxwYXRoIGQ9Ik0zMyAxNSBMMTUgMzMiIHN0cm9rZT0idXJsKCNjaHgtZ3JhZC1jeWFuKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz4KICAKICA8IS0tIENlbnRyYWwgQUkgQ29yZSAtLT4KICA8Y2lyY2xlIGN4PSIyNCIgY3k9IjI0IiByPSI0LjUiIGZpbGw9IiMwNTA3MEEiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLXdpZHRoPSIxLjgiIC8+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMiIgZmlsbD0iIzAwRjNGRiIgZmlsdGVyPSJ1cmwoI2NoeC1nbG93KSIgLz4KPC9zdmc+Cg==" alt="CyberHiveX Logo" class="brand-logo-icon" width="38" height="38">
+        <div class="brand-logo-text">
+          <span class="brand-logo-title">CYBER<span>HIVEX</span></span>
+          <span class="brand-logo-subtitle">TECHNOLOGIES</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu-wrapper" aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="rakshak-ai.html" class="nav-link">Rakshak AI</a></li>
+          <li><a href="solutions.html" class="nav-link">Solutions</a></li>
+          <li><a href="security-intelligence.html" class="nav-link">Security Intelligence</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="resources.html" class="nav-link active">Resources</a></li>
+          <li><a href="contact.html" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="sound-toggle-btn" class="sound-toggle-btn" aria-label="Toggle Audio">
+          <svg class="sound-icon" viewBox="0 0 24 24">
+            <path
+              d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+          </svg>
+          <span id="sound-toggle-label">AUDIO: OFF</span>
+        </button>
+
+        <a href="contact.html" class="btn btn-primary btn-sm">
+          <span>Request Security Assessment</span>
+          <span class="btn-arrow">→</span>
+        </a>
+
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Toggle navigation drawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo-text">
+        <span class="brand-logo-title">CYBER<span>HIVEX</span></span>
+        <span class="brand-logo-subtitle">TACTICAL MATRIX</span>
+      </div>
+      <button id="mobile-nav-close" class="mobile-nav-close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <ul class="mobile-nav-list">
+      <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+      <li><a href="rakshak-ai.html" class="mobile-nav-link">Rakshak AI</a></li>
+      <li><a href="solutions.html" class="mobile-nav-link">Solutions</a></li>
+      <li><a href="security-intelligence.html" class="mobile-nav-link">Security Intelligence</a></li>
+      <li><a href="about.html" class="mobile-nav-link">About</a></li>
+      <li><a href="resources.html" class="mobile-nav-link">Resources</a></li>
+      <li><a href="contact.html" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <section class="subpage-hero-section">
+      <div class="container">
+        <div class="subpage-breadcrumb">
+          <a href="index.html">HOME</a>
+          <span>/</span>
+          <span class="text-cyan">RESOURCES &amp; RESEARCH</span>
+        </div>
+
+        <div class="badge-tech font-mono" style="margin-bottom: 1rem; display: inline-flex;">
+          <span class="pulse-dot"></span>
+          THREAT RESEARCH, DISPATCHES &amp; ADVISORIES
+        </div>
+
+        <h1 class="subpage-title">
+          THE CYBERHIVEX SIGNAL
+        </h1>
+        <p class="subpage-subtitle">
+          In-depth technical dispatches, adversary campaign dissections, vulnerability advisories, and architectural whitepapers from our threat intelligence researchers.
+        </p>
+      </div>
+    </section>
+
+    <!-- Articles & Dispatches Section -->
+    <section class="insights-section" style="padding: 6rem 0;">
+      <div class="container">
+        <!-- Filter Bar -->
+        <div class="insights-filter-bar">
+          <button class="filter-btn active" data-filter="all">ALL DISPATCHES</button>
+          <button class="filter-btn" data-filter="threat-intel">THREAT INTELLIGENCE</button>
+          <button class="filter-btn" data-filter="ai-security">AI SECURITY</button>
+          <button class="filter-btn" data-filter="digital-trust">DIGITAL TRUST</button>
+          <button class="filter-btn" data-filter="identity">IDENTITY SECURITY</button>
+        </div>
+
+        <!-- Articles Grid -->
+        <div class="articles-grid">
+          <article class="article-card" data-category="identity">
+            <div class="article-meta">
+              <span>IDENTITY SECURITY</span>
+              <span>// 6 MIN READ</span>
+            </div>
+            <h3 class="article-title">The New Attack Surface: Why Identity Is Becoming the Perimeter</h3>
+            <p class="article-excerpt">
+              As perimeter firewalls yield to microservices and remote workforces, compromised credentials have become the adversary's preferred entry vehicle. How continuous attestation closes the gap.
+            </p>
+            <span class="article-read-link">
+              <span>READ BRIEFING</span>
+              <span>→</span>
+            </span>
+          </article>
+
+          <article class="article-card" data-category="ai-security">
+            <div class="article-meta">
+              <span>AI SECURITY</span>
+              <span>// 8 MIN READ</span>
+            </div>
+            <h3 class="article-title">AI Is Changing Cybersecurity — For Attackers and Defenders</h3>
+            <p class="article-excerpt">
+              Adversaries are weaponizing automated recon, polymorphic payloads, and LLM-driven evasion. Winning this race demands defensive intelligence that predicts and reacts faster than human operators.
+            </p>
+            <span class="article-read-link">
+              <span>READ BRIEFING</span>
+              <span>→</span>
+            </span>
+          </article>
+
+          <article class="article-card" data-category="digital-trust">
+            <div class="article-meta">
+              <span>DIGITAL TRUST</span>
+              <span>// 5 MIN READ</span>
+            </div>
+            <h3 class="article-title">Zero Trust: Beyond the Buzzword to Cryptographic Verification</h3>
+            <p class="article-excerpt">
+              Moving past vendor hype to implement genuine zero-trust fundamentals: micro-segmentation, ephemeral credentials, and the absolute elimination of implicit internal network trust.
+            </p>
+            <span class="article-read-link">
+              <span>READ BRIEFING</span>
+              <span>→</span>
+            </span>
+          </article>
+
+          <article class="article-card" data-category="threat-intel">
+            <div class="article-meta">
+              <span>THREAT INTELLIGENCE</span>
+              <span>// 7 MIN READ</span>
+            </div>
+            <h3 class="article-title">Mapping Nation-State APT Lateral Movement with Graph Correlation</h3>
+            <p class="article-excerpt">
+              How CyberHiveX threat correlation algorithms assemble disparate authentication logs and RPC calls into an illuminated, real-time graph of adversary propagation.
+            </p>
+            <span class="article-read-link">
+              <span>READ BRIEFING</span>
+              <span>→</span>
+            </span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CyberHiveX Labs Division Spotlight -->
+    <section class="labs-section optimize-render" id="labs" style="padding: 7rem 0; background: rgba(5,7,10,0.85);">
+      <div class="container">
+        <div class="labs-box">
+          <div class="section-eyebrow" style="justify-content: flex-start;">ADVANCED R&amp;D DIVISION</div>
+          <h2 class="section-title" style="margin-bottom: 0.5rem;">CYBERHIVEX LABS</h2>
+          <p class="font-mono text-cyan" style="font-size: 1.15rem; margin-bottom: 1.5rem;">
+            Researching what comes next.
+          </p>
+          <p style="max-width: 720px; color: var(--text-secondary); line-height: 1.6;">
+            Adversary methods never remain static. CyberHiveX Labs conducts offensive and defensive research into adversarial machine learning, automated attack surface discovery, and post-quantum zero-trust cryptographic architectures.
+          </p>
+
+          <div class="labs-research-domains">
+            <div class="domain-item">
+              <span>⚡</span>
+              <span>Adversarial AI &amp; Model Robustness</span>
+            </div>
+            <div class="domain-item">
+              <span>⚡</span>
+              <span>Global Threat Intelligence Mapping</span>
+            </div>
+            <div class="domain-item">
+              <span>⚡</span>
+              <span>Autonomous Defensive Neural Models</span>
+            </div>
+            <div class="domain-item">
+              <span>⚡</span>
+              <span>Digital Identity &amp; Biometric Trust</span>
+            </div>
+            <div class="domain-item">
+              <span>⚡</span>
+              <span>Emerging Attack Technique Countermeasures</span>
+            </div>
+            <div class="domain-item">
+              <span>⚡</span>
+              <span>Zero-Day Attack Surface Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Responsible Disclosure & Security Frameworks -->
+    <section style="padding: 6rem 0;">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-eyebrow">ETHICAL RESEARCH &amp; COMPLIANCE</div>
+          <h2 class="section-title">RESPONSIBLE DISCLOSURE &amp; COMPLIANCE</h2>
+          <p class="section-subtitle">
+            We adhere to rigorous ethical vulnerability research standards, collaborating with vendors and defense frameworks to ensure vulnerabilities are patched before public dissemination.
+          </p>
+        </div>
+
+        <div class="solutions-grid-6" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="solution-tier-card">
+            <span class="solution-tier-badge">DISCLOSURE POLICY</span>
+            <h3 class="solution-tier-title">Vulnerability Disclosure</h3>
+            <p class="solution-tier-desc">
+              We provide security researchers and white-hats a secure, PGP-encrypted channel to report vulnerabilities found in sovereign infrastructure.
+            </p>
+          </div>
+
+          <div class="solution-tier-card">
+            <span class="solution-tier-badge">FRAMEWORK ALIGNED</span>
+            <h3 class="solution-tier-title">MITRE ATT&amp;CK &amp; D3FEND</h3>
+            <p class="solution-tier-desc">
+              All telemetry, adversary techniques, and defensive recommendations are mapped to standard MITRE enterprise frameworks.
+            </p>
+          </div>
+
+          <div class="solution-tier-card">
+            <span class="solution-tier-badge">REGULATORY TRUST</span>
+            <h3 class="solution-tier-title">Sovereign Compliance</h3>
+            <p class="solution-tier-desc">
+              Full alignment with India Digital Personal Data Protection (DPDP) Act, CERT-In cybersecurity directives, and ISO 27001 standards.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-top-grid">
+        <div>
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImNoeC1ncmFkLWN5YW4iIHgxPSIwJSIgeTE9IjAlIiB4Mj0iMTAwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBGM0ZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjMDBBM0ZGIi8+CiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzAwNTFGRiIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iY2h4LWdyYWQtZ2xvdyIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjMDBGM0ZGIiBzdG9wLW9wYWNpdHk9IjAuOCIvPgogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMwMEYzRkYiIHN0b3Atb3BhY2l0eT0iMC4xIi8+CiAgICA8L2xpbmVhckdyYWRpZW50PgogICAgPGZpbHRlciBpZD0iY2h4LWdsb3ciIHg9Ii0yMCUiIHk9Ii0yMCUiIHdpZHRoPSIxNDAlIiBoZWlnaHQ9IjE0MCUiPgogICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIHJlc3VsdD0iYmx1ciIgLz4KICAgICAgPGZlQ29tcG9zaXRlIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImJsdXIiIG9wZXJhdG9yPSJvdmVyIiAvPgogICAgPC9maWx0ZXI+CiAgPC9kZWZzPgogIDwhLS0gT3V0ZXIgVGVjaG5pY2FsIFJpbmcgU2VnbWVudHMgLS0+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMjEiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLW9wYWNpdHk9IjAuMiIgc3Ryb2tlLXdpZHRoPSIxLjIiIHN0cm9rZS1kYXNoYXJyYXk9IjggNiAxOCA2IiAvPgogIDxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjE3IiBzdHJva2U9IiMwMEYzRkYiIHN0cm9rZS1vcGFjaXR5PSIwLjM1IiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLWRhc2hhcnJheT0iNCA0IiAvPgogIAogIDwhLS0gT3V0ZXIgU2hpZWxkIEhleCBTdHJ1Y3R1cmUgLS0+CiAgPHBvbHlnb24gcG9pbnRzPSIyNCw1IDQxLDE0IDQxLDMxIDI0LDQzIDcsMzEgNywxNCIgc3Ryb2tlPSJ1cmwoI2NoeC1ncmFkLWN5YW4pIiBzdHJva2Utd2lkdGg9IjEuOCIgZmlsbD0ibm9uZSIgZmlsdGVyPSJ1cmwoI2NoeC1nbG93KSIvPgogIAogIDwhLS0gQW5ndWxhciBIdW50aW5nIENyb3NzaGFpcnMgLS0+CiAgPGxpbmUgeDE9IjI0IiB5MT0iMiIgeDI9IjI0IiB5Mj0iOSIgc3Ryb2tlPSIjMDBGM0ZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz4KICA8bGluZSB4MT0iMjQiIHkxPSIzOSIgeDI9IjI0IiB5Mj0iNDYiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgPGxpbmUgeDE9IjIiIHkxPSIyNCIgeDI9IjkiIHkyPSIyNCIgc3Ryb2tlPSIjMDBGM0ZGIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz4KICA8bGluZSB4MT0iMzkiIHkxPSIyNCIgeDI9IjQ2IiB5Mj0iMjQiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIC8+CiAgCiAgPCEtLSBUaGUgQWdncmVzc2l2ZSAnWCcgSW50ZXJjZXB0b3IgV2luZ3MgLS0+CiAgPHBhdGggZD0iTTE1IDE1IEwzMyAzMyIgc3Ryb2tlPSJ1cmwoI2NoeC1ncmFkLWN5YW4pIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiAvPgogIDxwYXRoIGQ9Ik0zMyAxNSBMMTUgMzMiIHN0cm9rZT0idXJsKCNjaHgtZ3JhZC1jeWFuKSIgc3Ryb2tlLXdpZHRoPSIyLjUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgLz4KICAKICA8IS0tIENlbnRyYWwgQUkgQ29yZSAtLT4KICA8Y2lyY2xlIGN4PSIyNCIgY3k9IjI0IiByPSI0LjUiIGZpbGw9IiMwNTA3MEEiIHN0cm9rZT0iIzAwRjNGRiIgc3Ryb2tlLXdpZHRoPSIxLjgiIC8+CiAgPGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iMiIgZmlsbD0iIzAwRjNGRiIgZmlsdGVyPSJ1cmwoI2NoeC1nbG93KSIgLz4KPC9zdmc+Cg==" alt="CyberHiveX Logo" class="brand-logo-icon" width="34" height="34">
+            <div class="brand-logo-text">
+              <span class="brand-logo-title">CYBER<span>HIVEX</span></span>
+              <span class="brand-logo-subtitle">TECHNOLOGIES</span>
+            </div>
+          </a>
+          <p class="footer-brand-statement">AI-POWERED PROACTIVE CYBER DEFENSE</p>
+          <p class="font-mono text-cyan" style="font-size: 0.8rem;">DETECT. DEFEND. DOMINATE.</p>
+        </div>
+        <div>
+          <h4 class="footer-column-title">Solutions</h4>
+          <ul class="footer-links-list">
+            <li><a href="rakshak-ai.html" class="footer-link">Rakshak AI</a></li>
+            <li><a href="solutions.html" class="footer-link">Solutions</a></li>
+            <li><a href="security-intelligence.html" class="footer-link">Security Intelligence</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-column-title">Company</h4>
+          <ul class="footer-links-list">
+            <li><a href="about.html" class="footer-link">About Us</a></li>
+            <li><a href="about.html" class="footer-link">Mission &amp; Vision</a></li>
+            <li><a href="contact.html" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-column-title">Resources</h4>
+          <ul class="footer-links-list">
+            <li><a href="resources.html" class="footer-link">The Signal</a></li>
+            <li><a href="resources.html" class="footer-link">Research Papers</a></li>
+            <li><a href="contact.html" class="footer-link">Responsible Disclosure</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>&copy; 2026 CyberHiveX Technologies. All rights reserved.</div>
+        <div class="social-links-row">
+          <a href="https://www.linkedin.com/company/cyberhivex" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+          <a href="https://x.com/cyberhivex" target="_blank" rel="noopener noreferrer" class="social-link">X (Twitter)</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
