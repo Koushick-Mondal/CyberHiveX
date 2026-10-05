@@ -1,0 +1,50 @@
+{
+  "layouts": [
+    "375: single H1 and no page overflow",
+    "390: single H1 and no page overflow",
+    "430: single H1 and no page overflow",
+    "768: single H1 and no page overflow",
+    "1024: single H1 and no page overflow",
+    "1280: single H1 and no page overflow",
+    "1440: single H1 and no page overflow",
+    "1920: single H1 and no page overflow"
+  ],
+  "accessibility": [
+    {
+      "width": 375,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "violations": []
+    },
+    {
+      "width": 430,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "violations": []
+    },
+    {
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "violations": []
+    }
+  ],
+  "interactions": [
+    "Explore CTA focus; product search/empty/reset/simulation; compact evidence preserved"
+  ],
+  "errors": []
+}

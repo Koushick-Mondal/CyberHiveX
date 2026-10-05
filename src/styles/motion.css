@@ -1,6 +1,6 @@
 /* Motion is an enhancement: no hidden sections, scroll locking or animation-only content. */
 :root { --motion-fast: 180ms; --motion-panel: 280ms; --motion-reveal: 520ms; --motion-ease: cubic-bezier(.2,.7,.2,1); }
-.site-app .route-view { animation: ch-route-enter var(--motion-panel) var(--motion-ease) both; }
+.site-app .route-view { animation: ch-route-enter var(--motion-panel) var(--motion-ease); }
 @keyframes ch-route-enter { from { opacity: .9; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
 .shell-nav-link { position: relative; }
 .shell-nav-link::after { content: ''; position: absolute; height: 1px; left: 8px; right: 8px; bottom: 8px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--motion-fast) var(--motion-ease); }
@@ -27,10 +27,10 @@
 .rk-timeline li:has(summary:hover)::before { background: #d1e6f7; box-shadow: 0 0 0 3px rgb(164 202 255 / 12%); }
 .rk-dashboard .rk-button:active:not(:disabled) { translate: 0 1px; }
 @media (prefers-reduced-motion: no-preference) {
-  .ch-hero-copy > .ch-eyebrow { animation: ch-hero-enter 480ms var(--motion-ease) both; }
-  .ch-hero-copy > h1 { animation: ch-hero-enter 620ms var(--motion-ease) 100ms both; }
-  .ch-hero-support, .ch-hero-description { animation: ch-hero-enter 480ms var(--motion-ease) 220ms both; }
-  .ch-hero-actions, .ch-tagline { animation: ch-hero-enter 480ms var(--motion-ease) 320ms both; }
+  .ch-hero-copy > .ch-eyebrow { animation: ch-hero-enter 480ms var(--motion-ease) backwards; }
+  .ch-hero-copy > h1 { animation: ch-hero-enter 620ms var(--motion-ease) 100ms backwards; }
+  .ch-hero-support, .ch-hero-description { animation: ch-hero-enter 480ms var(--motion-ease) 220ms backwards; }
+  .ch-hero-actions, .ch-tagline { animation: ch-hero-enter 480ms var(--motion-ease) 320ms backwards; }
 }
 @keyframes ch-hero-enter { from { opacity: .8; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {

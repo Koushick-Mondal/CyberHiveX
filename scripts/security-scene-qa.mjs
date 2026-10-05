@@ -17,6 +17,8 @@ try {
   const page = await context.newPage();
   page.on('pageerror', error => results.pageErrors.push(error.message));
   await page.goto(base);
+  const onboarding = page.locator('dialog.mode-onboarding');
+  if (await onboarding.count()) { await onboarding.locator('.mode-card--technical').click(); await onboarding.waitFor({ state: 'hidden' }); }
   const scene = page.getByRole('region', { name: 'Rakshak AI security intelligence visualization', exact: true });
   await scene.waitFor();
   assert.equal(await scene.getByRole('button', { name: /Play demo sequence/ }).count(), 0);
@@ -62,6 +64,8 @@ try {
   const motionPage = await motionContext.newPage();
   motionPage.on('pageerror', error => results.pageErrors.push(error.message));
   await motionPage.goto(base);
+  const motionOnboarding = motionPage.locator('dialog.mode-onboarding');
+  if (await motionOnboarding.count()) { await motionOnboarding.locator('.mode-card--technical').click(); await motionOnboarding.waitFor({ state: 'hidden' }); }
   const motionScene = motionPage.getByRole('region', { name: 'Rakshak AI security intelligence visualization', exact: true });
   await motionScene.getByRole('button', { name: 'Pause demo sequence' }).waitFor();
   await motionScene.getByRole('button', { name: 'Reset hero simulation' }).click();

@@ -179,3 +179,54 @@ summary { cursor: pointer; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
+
+/* Experience mode tokens. Business preserves the existing light system;
+   technical changes the shared shell and surfaces without replacing page content. */
+html[data-mode='technical'] {
+  color-scheme: dark;
+  --color-bg-base: #06111B;
+  --color-bg-secondary: #0A1C2B;
+  --color-panel: #0B1F30;
+  --color-panel-hover: #102B3D;
+  --color-border: #29465C;
+  --color-border-subtle: #1D374A;
+  --color-border-active: #82BCE4;
+  --color-text-primary: #EDF4F8;
+  --color-text-secondary: #9EB3C2;
+  --color-text-muted: #8DA5B5;
+  --color-accent-primary: #82BCE4;
+  --color-accent-hover: #B0DAF3;
+  --color-accent-soft: #0D2A3E;
+  --color-dark-blue: #D7EAF4;
+  --color-accent-secondary: #93CDB5;
+  --color-success: #93CDB5;
+  --color-warning: #E5C77F;
+  --color-critical: #FFB7AE;
+  --shadow-sm: 0 2px 8px rgb(0 0 0 / 18%);
+  --shadow-md: 0 16px 40px rgb(0 0 0 / 22%);
+  --shadow-drawer: -16px 0 48px rgb(0 0 0 / 34%);
+}
+html[data-mode='technical'] body { background: var(--color-bg-base); color: var(--color-text-primary); }
+html[data-mode='technical'] .shell-navbar,
+html[data-mode='technical'] .shell-footer { background: var(--color-bg-base); border-color: var(--color-border); }
+html[data-mode='technical'] .shell-brand-type > span,
+html[data-mode='technical'] .shell-footer h2 { color: var(--color-text-primary); }
+html[data-mode='technical'] .shell-brand-type small,
+html[data-mode='technical'] .shell-nav-link,
+html[data-mode='technical'] .shell-footer-brand-block > p,
+html[data-mode='technical'] .shell-footer-links a,
+html[data-mode='technical'] .shell-footer-contact > p,
+html[data-mode='technical'] .shell-footer-bottom { color: var(--color-text-secondary); }
+html[data-mode='technical'] .shell-nav-link:hover,
+html[data-mode='technical'] .shell-nav-link[aria-current='page'] { background: var(--color-accent-soft); color: var(--color-accent-primary); }
+html[data-mode='technical'] .shell-menu-button { background: var(--color-panel); border-color: var(--color-border); color: var(--color-text-primary); }
+html[data-mode='technical'] .shell-footer-contact,
+html[data-mode='technical'] .shell-footer-bottom { border-color: var(--color-border); }
+html[data-mode='technical'] .chx-pages { background: var(--color-bg-base); color: var(--color-text-primary); }
+html[data-mode='technical'] .chx-pages .pg-panel,
+html[data-mode='technical'] .chx-pages .pg-card,
+html[data-mode='technical'] .chx-pages .pg-facts,
+html[data-mode='technical'] .chx-pages .pg-tab-panel { background: var(--color-panel); border-color: var(--color-border); }
+html[data-mode='technical'] .chx-pages p,
+html[data-mode='technical'] .chx-pages .pg-lead,
+html[data-mode='technical'] .chx-pages .pg-note { color: var(--color-text-secondary); }

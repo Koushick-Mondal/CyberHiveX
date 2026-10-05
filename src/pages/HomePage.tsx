@@ -1,4 +1,4 @@
-import { useId, useState, type ReactNode } from 'react';
+import { useEffect, useId, useState, type ReactNode } from 'react';
 import { ArrowRight, ArrowUpRight, ChevronDown, Check } from 'lucide-react';
 import CyberCommandCenterHeroVisual from '../components/CyberCommandCenterHeroVisual';
 import RakshakCommandCenterPreview from '../components/RakshakCommandCenterPreview';
@@ -9,6 +9,7 @@ import DefenseOperationsDeepDive from '../components/DefenseOperationsDeepDive';
 import type { PageId, PageProps } from '../types/site';
 import { RouteLink } from '../components/ui';
 import { serviceCatalogue } from './serviceCatalogue';
+import useUserMode from '../state/useUserMode';
 import './home.css';
 
 const services = serviceCatalogue.map(service => ({ title: service.label, scope: service.scope, output: service.deliverable }));
@@ -54,6 +55,11 @@ function Accordion<T extends { title: string }>({ items, renderContent, label }:
 export default function HomePage({ setActivePage }: PageProps) {
   const [audience, setAudience] = useState(0);
   const audienceId = useId();
+  const { mode } = useUserMode();
+  useEffect(() => {
+    document.body.classList.toggle('home-dark-mode', mode === 'technical');
+    return () => document.body.classList.remove('home-dark-mode');
+  }, [mode]);
   const navigate = (page: PageId) => setActivePage(page);
   const assessment = () => navigate('licensing');
   const explore = () => {
@@ -64,15 +70,16 @@ export default function HomePage({ setActivePage }: PageProps) {
     } else navigate('rakshak');
   };
   return (
-    <div className="ch-home">
+    <div className="ch-home ch-home--dark">
       <section className="ch-home-hero">
         <div className="cyber-container ch-hero-layout">
           <div className="ch-hero-copy">
-            <span className="ch-eyebrow">CyberHiveX Technologies / Digital Defense</span>
+            <div className="ch-hero-index"><span>01</span><span>CYBERHIVEX TECHNOLOGIES</span><span>/ DIGITAL DEFENSE</span></div>
             <h1><span>AI-POWERED</span><span>PROACTIVE</span><span className="ch-title-accent">CYBER DEFENSE</span></h1>
-            <p className="ch-hero-support">Detect threats. Identify vulnerabilities.<br />Understand risk. Strengthen digital resilience.</p>
-            <p className="ch-hero-description">CyberHiveX Technologies builds intelligent cybersecurity solutions designed to help organizations discover vulnerabilities, understand evolving threats, analyze security intelligence, respond to incidents, and continuously strengthen digital resilience.</p>
+            <p className="ch-hero-support">Security intelligence for the moment before an attack becomes an incident.</p>
+            <p className="ch-hero-description">CyberHiveX builds AI-powered proactive cybersecurity solutions that help organizations understand digital exposure, detect threats, identify vulnerabilities, and strengthen digital resilience.</p>
             <div className="ch-hero-actions"><button type="button" className="btn-cyber-primary" onClick={explore}>Explore Rakshak AI <ArrowRight size={16} aria-hidden="true" /></button><button type="button" className="btn-cyber-outline" onClick={assessment}>Request Security Assessment <ArrowUpRight size={16} aria-hidden="true" /></button></div>
+            <div className="ch-hero-ledger" aria-label="CyberHiveX homepage positioning"><span><small>SYSTEM</small>PROACTIVE DEFENSE</span><span><small>PLATFORM</small>RAKSHAK AI</span><span><small>MODE</small>DEMO ENVIRONMENT</span></div>
             <div className="ch-tagline">DETECT. DEFEND. DOMINATE.</div>
           </div>
           <CyberCommandCenterHeroVisual onExploreRakshak={explore} onRequestAssessment={assessment} />

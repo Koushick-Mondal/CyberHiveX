@@ -6,6 +6,9 @@ import { legacyHashRoutes, resolvePage, routes } from './routes';
 import type { Navigate, PageId, PageProps } from './types/site';
 import { usePageMotion } from './hooks/usePageMotion';
 import { useMagneticInteractions } from './hooks/useMagneticInteractions';
+import UserModeOnboarding from './components/UserModeOnboarding';
+import UserModeProvider from './state/UserModeProvider';
+import useUserMode from './state/useUserMode';
 
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const pages: Record<PageId, ComponentType<PageProps>> = {
@@ -74,7 +77,9 @@ function RouteView({ route, setActivePage, mainRef, hasNavigated }: { route: Rou
   return <div className="route-view" key={route.page}><Page setActivePage={setActivePage} /></div>;
 }
 
-export default function App() {
+function AppShell() {
+  const { mode, setMode } = useUserMode();
+  const [onboardingVisible, setOnboardingVisible] = useState(() => mode === null);
   const [route, setRoute] = useState(currentRoute);
   const mainRef = useRef<HTMLElement>(null);
   const hasNavigated = useRef(false);
@@ -102,7 +107,8 @@ export default function App() {
   }, []);
 
   return (
-    <div className="site-app">
+    <>
+      <div className="site-app">
       <PageMetadata page={route.page} />
       <a href="#main-content" className="skip-link" onClick={(event) => { event.preventDefault(); mainRef.current?.focus(); }}>Skip to main content</a>
       <Navbar activePage={route.page} setActivePage={navigate} />
@@ -114,6 +120,12 @@ export default function App() {
         </PageErrorBoundary>
       </main>
       <Footer setActivePage={navigate} />
-    </div>
+      </div>
+      {onboardingVisible && <UserModeOnboarding onSelect={setMode} onFinish={() => setOnboardingVisible(false)} onDismiss={() => setOnboardingVisible(false)} />}
+    </>
   );
+}
+
+export default function App() {
+  return <UserModeProvider><AppShell /></UserModeProvider>;
 }

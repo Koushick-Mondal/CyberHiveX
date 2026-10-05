@@ -17,15 +17,19 @@ Production output is `dist/`. Build runs strict TypeScript, Vite bundling, and r
 ## Architecture
 
 - `src/App.tsx` and `src/routes.ts`: clean-path navigation, history/legacy hash support, lazy routes, metadata, loading/error boundaries and skip link.
+- `src/state/UserModeProvider.tsx`, `src/state/useUserMode.ts`, `src/components/UserModeOnboarding.tsx` and `UserModeControl.tsx`: first-visit Business / Developer-Security-Engineer selection, local preference persistence under `cyberhivex-user-mode`, theme tokens, keyboard-safe dismissal and later switching.
 - `src/index.css`: shared light design tokens, typography, controls, focus and reduced-motion rules.
+- `src/styles/motion.css`, `usePageMotion` and `useMagneticInteractions`: one-shot section/chart reveals, bounded fine-pointer attraction, navigation/button feedback and route entrances. No pre-hidden content, scroll lock or new runtime library. `AnimatedMetric` exposes actual fixture counts to assistive technology while its decorative number interpolates.
 - `src/components/ui.tsx` and `shell.css`: reusable section headings, badges, buttons, crawlable route links, native modal menu and footer.
-- `src/pages/HomePage.tsx` and `home.css`: editorial home, preserved event evidence, interactive lifecycle/architecture/operations and shared service catalogue.
+- `src/pages/HomePage.tsx` and `home.css`: homepage-only dark editorial landing canvas, architectural hero frame, responsive Rakshak security-intelligence visualization, preserved event evidence, interactive lifecycle/architecture/operations and shared service catalogue. The homepage temporarily applies its dark shell theme; other routes retain the light shell.
 - `src/components/visualization/`: layered SVG security core, inspectable fictional nodes, authored telemetry, eight-stage playback and motion controller. No WebGL or textures. One auto-play cycle, offscreen/page-hidden suspension, pause/step/reset and static reduced-motion mode.
 - `src/components/RakshakCommandCenterPreview.tsx`, `src/components/rakshak/` and `rakshak.css`: thirteen focused local product modules, typed fixtures, evidence inspection, prepared Q&A, approval-gated response and report export. Additional modules load on demand.
 - `src/pages/pages.css` and `pageTools.tsx`: secondary-page styling and keyboard-operated tabs.
 - `scripts/build-pages.mjs`: prerenders the seventeen routes and produces `404.html`, `robots.txt` and `sitemap.xml`.
 
 Primary routes: `/`, `/about`, `/services`, `/rakshak-ai`, `/products`, `/approach`, `/pricing`, `/contact`, `/responsible-disclosure`, `/404`, `/privacy-policy`, `/terms`, `/cookie-policy`. Existing `/capabilities`, `/solutions`, `/threatlab` and `/ecosystem` remain. Root hash aliases are preserved, including `#services` → capabilities, `#licensing` → contact, `#cyber-intelligence` → Threat Lab and `#security` → ecosystem.
+
+On a new browser visit, the mode selection asks whether the visitor wants **Business mode** or **Developer / Security Engineer mode**. Business keeps the existing light experience; technical applies the dark technical token layer and homepage scene. The preference persists in localStorage and can be changed from the footer Preferences control or the mobile navigation drawer. Dismissing the selector skips it for the current session; it returns on a later visit until a mode is selected.
 
 Set `VITE_SITE_URL` to the confirmed deployment origin for build-time canonical/social URLs and a populated sitemap. Without it, browser metadata uses the current origin and the generated sitemap has no invented domain. Static hosting should serve route directories and return `404.html` with a 404 status for unknown paths.
 
@@ -55,6 +59,12 @@ QA tooling is separate from the application dependency tree. Install `playwright
 # Against an already running preview:
 QA_TOOL_DIR=/path/to/qa-tools QA_URL=http://localhost:4186 npm run test:ui
 
+# Homepage-only responsive, accessibility, CTA and theme-isolation checks:
+QA_TOOL_DIR=/path/to/qa-tools QA_URL=http://localhost:4186 npm run test:landing
+
+# First-visit mode selection, persistence, switching and mobile/keyboard checks:
+QA_TOOL_DIR=/path/to/qa-tools QA_URL=http://localhost:4186 npm run test:mode
+
 # After building: verify prerendered content, metadata, robots and sitemap:
 node scripts/seo-qa.mjs
 # For a build using a configured public origin:
@@ -62,6 +72,9 @@ QA_SITE_ORIGIN=https://your-confirmed-origin node scripts/seo-qa.mjs
 
 # Security-core interaction, motion and responsive checks:
 QA_TOOL_DIR=/path/to/qa-tools QA_URL=http://localhost:4186 node scripts/security-scene-qa.mjs
+
+# Magnetic, scroll, product, lifecycle, touch and live reduced-motion fallback checks:
+QA_TOOL_DIR=/path/to/qa-tools QA_URL=http://localhost:5174 node scripts/motion-qa.mjs
 
 # Optional contact-adapter fixtures; first run a separate configured dev instance:
 VITE_CONTACT_ENDPOINT=/api/contact npm run dev -- --port 5186 --strictPort

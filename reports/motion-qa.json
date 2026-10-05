@@ -1,7 +1,61 @@
 {
   "interactions": [
-    "CTA attraction is bounded; pointer leave restores position; keyboard focus stays visible."
+    "CTA attraction is bounded; pointer leave restores position; keyboard focus stays visible.",
+    "Selected stage connections receive staggered packets; core activity is finite and stops when paused.",
+    "Meaningful groups reveal once; rescrolling does not replay entrances or hide content.",
+    "Metric animation reaches actual fixture counts, updates after local simulation, and exposes true values to assistive technology; bars settle.",
+    "Lifecycle hover previews context; switching to reduced motion cancels motion and magnetic targets while clicks still work.",
+    "Touch uses four nodes with no magnetic targets; tap inspection, mobile module selection, metrics and lifecycle work."
   ],
-  "responsive": [],
+  "responsive": [
+    {
+      "width": 375,
+      "overflow": 0,
+      "nodes": 4,
+      "overlap": false
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "nodes": 4,
+      "overlap": false
+    },
+    {
+      "width": 430,
+      "overflow": 0,
+      "nodes": 4,
+      "overlap": false
+    },
+    {
+      "width": 768,
+      "overflow": 0,
+      "nodes": 8,
+      "overlap": false
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "nodes": 8,
+      "overlap": false
+    },
+    {
+      "width": 1280,
+      "overflow": 0,
+      "nodes": 8,
+      "overlap": false
+    },
+    {
+      "width": 1440,
+      "overflow": 0,
+      "nodes": 8,
+      "overlap": false
+    },
+    {
+      "width": 1920,
+      "overflow": 0,
+      "nodes": 8,
+      "overlap": false
+    }
+  ],
   "errors": []
 }

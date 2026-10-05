@@ -18,7 +18,14 @@ page.on('pageerror', error => errors.push(error.message));
 page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
 const base = process.env.QA_URL || 'http://localhost:5173';
 const routes = Object.keys(siteRoutes);
-const goto = async (route) => { await page.goto(`${base}${siteRoutes[route].path}`); await page.locator('.route-view h1').waitFor(); };
+const dismissModeOnboarding = async () => {
+  const onboarding = page.locator('dialog.mode-onboarding');
+  if (await onboarding.count()) {
+    await onboarding.locator('.mode-card--business').click();
+    await onboarding.waitFor({ state: 'hidden' });
+  }
+};
+const goto = async (route) => { await page.goto(`${base}${siteRoutes[route].path}`); await page.locator('.route-view h1').waitFor(); await dismissModeOnboarding(); };
 const widths = [375, 390, 430, 768, 1024, 1280, 1440, 1920];
 const results = { layouts: [], accessibility: [], interactions: [] };
 await mkdir('reports', { recursive: true });
@@ -52,6 +59,7 @@ try {
   await page.setViewportSize({ width: 1024, height: 1000 });
   await page.goto(`${base}/#home`);
   await page.locator('.route-view h1').waitFor();
+  await dismissModeOnboarding();
   const menu = page.getByRole('button', { name: 'Open navigation menu' });
   await menu.click();
   await page.getByRole('dialog').waitFor({ state: 'visible' });

@@ -15,6 +15,8 @@ try {
   page.setDefaultTimeout(15000);
   page.on('pageerror', error => results.errors.push(error.message));
   await page.goto(base);
+  const onboarding = page.locator('dialog.mode-onboarding');
+  if (await onboarding.count()) { await onboarding.locator('.mode-card--technical').click(); await onboarding.waitFor({ state: 'hidden' }); }
   const scene = page.getByRole('region', { name: 'Rakshak AI security intelligence visualization', exact: true });
   await scene.waitFor();
   await scene.getByRole('button', { name: 'Reset hero simulation' }).click();
@@ -47,7 +49,7 @@ try {
   assert.equal(await scene.evaluate(element => element.getAnimations({ subtree: true }).length), 0);
   results.interactions.push('Selected stage connections receive staggered packets; core activity is finite and stops when paused.');
 
-  const evidence = page.locator('.ch-evidence-layout > div');
+  const evidence = page.locator('.ch-evidence-layout > div').first();
   await evidence.scrollIntoViewIfNeeded();
   await page.waitForTimeout(600);
   assert.equal(await evidence.getAttribute('data-motion-seen'), 'true');
@@ -80,14 +82,14 @@ try {
   results.interactions.push('Metric animation reaches actual fixture counts, updates after local simulation, and exposes true values to assistive technology; bars settle.');
 
   const lifecycle = page.locator('.ch-lifecycle');
-  await lifecycle.getByRole('button', { name: 'Learn', exact: true }).hover();
+  await lifecycle.getByRole('button', { name: /\bLearn$/ }).hover();
   await lifecycle.getByRole('heading', { name: 'Understand what happened and why.' }).waitFor();
-  assert.equal(await lifecycle.getByRole('button', { name: 'Learn', exact: true }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await lifecycle.getByRole('button', { name: /\bLearn$/ }).getAttribute('aria-pressed'), 'true');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.waitForTimeout(150);
-  await lifecycle.getByRole('button', { name: 'Discover', exact: true }).hover();
-  assert.equal(await lifecycle.getByRole('button', { name: 'Learn', exact: true }).getAttribute('aria-pressed'), 'true');
-  await lifecycle.getByRole('button', { name: 'Discover', exact: true }).click();
+  await lifecycle.getByRole('button', { name: /\bDiscover$/ }).hover();
+  assert.equal(await lifecycle.getByRole('button', { name: /\bLearn$/ }).getAttribute('aria-pressed'), 'true');
+  await lifecycle.getByRole('button', { name: /\bDiscover$/ }).click();
   await lifecycle.getByRole('heading', { name: 'Know what needs protecting.' }).waitFor();
   await scene.scrollIntoViewIfNeeded();
   assert.equal(await scene.evaluate(element => element.getAnimations({ subtree: true }).length), 0);
@@ -99,6 +101,8 @@ try {
   const touchPage = await touch.newPage();
   touchPage.on('pageerror', error => results.errors.push(error.message));
   await touchPage.goto(base);
+  const touchOnboarding = touchPage.locator('dialog.mode-onboarding');
+  if (await touchOnboarding.count()) { await touchOnboarding.locator('.mode-card--technical').click(); await touchOnboarding.waitFor({ state: 'hidden' }); }
   const touchScene = touchPage.getByRole('region', { name: 'Rakshak AI security intelligence visualization', exact: true });
   await touchScene.getByRole('button', { name: /^Inspect ASSET-042/ }).tap();
   await touchScene.getByRole('region', { name: 'Selected fictional network node' }).getByText('ASSET-042', { exact: true }).waitFor();
@@ -110,7 +114,7 @@ try {
   await touchPage.waitForTimeout(800);
   assert.equal(await touchFull.locator('.rk-animated-metric [aria-hidden="true"]').first().innerText(), '6');
   const touchLifecycle = touchPage.locator('.ch-lifecycle');
-  await touchLifecycle.getByRole('button', { name: 'Respond', exact: true }).tap();
+  await touchLifecycle.getByRole('button', { name: /\bRespond$/ }).tap();
   await touchLifecycle.getByRole('heading', { name: 'Handle incidents with a clear plan.' }).waitFor();
   results.interactions.push('Touch uses four nodes with no magnetic targets; tap inspection, mobile module selection, metrics and lifecycle work.');
   await touch.close();

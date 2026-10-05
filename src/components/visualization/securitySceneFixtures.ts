@@ -7,7 +7,7 @@ export interface SecurityNode {
 // Authored, fictional records only. IDs, severities and relationships do not describe live systems.
 export const SECURITY_NODES: readonly SecurityNode[] = [
   { id: 'ASSET-042', label: 'Assets', type: 'Application', risk: 'Medium', status: 'Inventory review', x: 16, y: 22, mobileX: 16, mobileY: 22, evidence: 'api.example.com · Prepared inventory lists a diagnostic route. Reachability and access controls are unverified.' },
-  { id: 'IDENTITY-017', label: 'Identity', type: 'Sign-in service', risk: 'High', status: 'Needs review', x: 13, y: 52, mobileX: 84, mobileY: 22, evidence: 'auth.example.com · EVT-9041: 18 unsuccessful sign-ins in a prepared 60-second window. No successful sign-in is recorded.' },
+   { id: 'IDENTITY-017', label: 'Identity', type: 'Sign-in service', risk: 'High', status: 'Needs review', x: 13, y: 52, mobileX: 84, mobileY: 22, evidence: 'auth.example.com · RHX-0421: 18 unsuccessful sign-ins in a prepared 60-second window. No successful sign-in is recorded.' },
   { id: 'ENDPOINT-221', label: 'Endpoint', type: 'Example workstation', risk: 'Low', status: 'Context only', x: 22, y: 81, mobileX: 16, mobileY: 81, evidence: 'worker.example · Fictional workstation inventory reference. No endpoint telemetry is collected.' },
   { id: 'NETWORK-09', label: 'Network', type: 'Shared gateway', risk: 'Critical', status: 'Owner validation', x: 50, y: 90, mobileX: 84, mobileY: 81, evidence: 'gateway.example.com · DEMO-EVID-05 records a prepared management-baseline mismatch. No configuration change is performed.' },
   { id: 'THREAT-017', label: 'Threat context', type: 'Indicator record', risk: 'High', status: 'Intent unknown', x: 84, y: 22, evidence: '192.0.2.41 · Reserved documentation address shared by two fixtures. No reputation lookup or attribution.' },
@@ -16,7 +16,7 @@ export const SECURITY_NODES: readonly SecurityNode[] = [
   { id: 'INCIDENT-04', label: 'Incident review', type: 'Example case', risk: 'Low', status: 'No confirmed incident', x: 50, y: 10, evidence: 'Prepared investigation case linking fictional evidence. No real incident is detected or resolved.' },
 ];
 export const SCENE_EVENT = {
-  id: 'EVT-9041', source: 'DEMO TELEMETRY', confidence: 85, risk: 'High' as const,
+  id: 'RHX-0421', source: 'DEMO TELEMETRY', status: 'SIMULATED', confidence: 85, risk: 'High' as const,
   recommendation: 'Review the sign-in evidence and validate rate-limit settings with the identity owner.',
 };
 export const SCENE_STAGES = [

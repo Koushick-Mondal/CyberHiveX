@@ -9,7 +9,7 @@ export function useMagneticInteractions(rootRef: RefObject<HTMLElement | null>, 
   const reduced = useMediaQuery('(prefers-reduced-motion: reduce)');
   useEffect(() => {
     const root = rootRef.current;
-    if (!root || !fine || reduced) return;
+    if (!root || !fine || reduced || typeof CSS === 'undefined' || !CSS.supports('translate', '1px')) return;
     let active: HTMLElement | null = null;
     let bounds: DOMRect | null = null;
     let frame = 0;

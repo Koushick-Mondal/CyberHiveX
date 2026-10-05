@@ -498,9 +498,45 @@
     "Unknown clean path renders professional noindex 404 view"
   ],
   "performance": {
-    "homeJavaScript": [],
-    "bytes": 0,
-    "gzipBytes": 0
+    "homeJavaScript": [
+      {
+        "path": "/assets/index-4jVx6lma.js",
+        "bytes": 248673,
+        "gzipBytes": 76931
+      },
+      {
+        "path": "/assets/jsx-runtime-DLNB9Qsn.js",
+        "bytes": 8266,
+        "gzipBytes": 3115
+      },
+      {
+        "path": "/assets/HomePage-S1_qQ4wB.js",
+        "bytes": 55964,
+        "gzipBytes": 16388
+      },
+      {
+        "path": "/assets/RakshakCommandCenterPreview-DNBxOnqk.js",
+        "bytes": 29417,
+        "gzipBytes": 8531
+      },
+      {
+        "path": "/assets/search-MKa7_ijc.js",
+        "bytes": 203,
+        "gzipBytes": 182
+      },
+      {
+        "path": "/assets/rotate-ccw-BwlvgbN0.js",
+        "bytes": 391,
+        "gzipBytes": 272
+      },
+      {
+        "path": "/assets/serviceCatalogue-ebfzVvrt.js",
+        "bytes": 5204,
+        "gzipBytes": 1854
+      }
+    ],
+    "bytes": 348118,
+    "gzipBytes": 107273
   },
   "consoleErrors": []
 }

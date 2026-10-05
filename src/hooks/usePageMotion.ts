@@ -26,12 +26,11 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>, routeKey: 
         if (seen.has(element)) continue;
         seen.add(element);
         element.dataset.motionSeen = 'true';
-        if (document.hidden || element.contains(document.activeElement)) continue;
+        if (document.hidden || element.contains(document.activeElement) || typeof element.animate !== 'function') continue;
         const bar = element.classList.contains('rk-bar');
         const timeline = element.parentElement?.classList.contains('rk-timeline');
         const index = timeline && element.parentElement ? [...element.parentElement.children].indexOf(element) : 0;
-        if (bar) element.style.transformOrigin = 'left center';
-        const animation = element.animate(bar ? [{ transform: 'scaleX(.02)' }, { transform: 'scaleX(1)' }] : [{ opacity: .75, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }], {
+        const animation = element.animate(bar ? [{ transform: 'scaleX(.02)', transformOrigin: 'left center' }, { transform: 'scaleX(1)', transformOrigin: 'left center' }] : [{ opacity: .75, transform: 'translateY(14px)' }, { opacity: 1, transform: 'translateY(0)' }], {
           duration: bar ? 640 : 520, delay: timeline ? Math.min(index * 55, 220) : 0, easing: 'cubic-bezier(.2,.7,.2,1)',
         });
         animations.set(element, animation);
@@ -64,7 +63,7 @@ export function usePageMotion(rootRef: RefObject<HTMLElement | null>, routeKey: 
     return () => {
       observer.disconnect(); mutations.disconnect(); root.removeEventListener('focusin', focus); document.removeEventListener('visibilitychange', visibility);
       for (const element of animations.keys()) finish(element);
-      for (const element of registered) { delete element.dataset.motionSeen; if (element.classList.contains('rk-bar')) element.style.removeProperty('transform-origin'); }
+      for (const element of registered) delete element.dataset.motionSeen;
     };
   }, [rootRef, routeKey, reduced]);
 }

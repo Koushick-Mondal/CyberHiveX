@@ -5,6 +5,7 @@ import CyberLogo from './CyberLogo';
 import { RouteLink } from './ui';
 import './shell.css';
 import type { PageId, PageProps } from '../types/site';
+import UserModeControl from './UserModeControl';
 
 const navItems: { page: PageId; label: string; description: string }[] = [
   { page: 'home', label: 'Platform', description: 'Our approach to proactive cyber defense' },
@@ -101,7 +102,8 @@ export default function Navbar({ activePage, setActivePage }: PageProps & { acti
             </nav>
             <div className="shell-drawer-secondary">
               <RouteLink page="ecosystem" onNavigate={navigate} aria-current={activePage === 'ecosystem' ? 'page' : undefined}>Explore our defense ecosystem<ArrowRight size={16} aria-hidden="true" /></RouteLink>
-              <RouteLink page="licensing" onNavigate={navigate} className="btn-cyber-primary">Request security assessment<ArrowRight size={16} aria-hidden="true" /></RouteLink>
+             <RouteLink page="licensing" onNavigate={navigate} className="btn-cyber-primary">Request security assessment<ArrowRight size={16} aria-hidden="true" /></RouteLink>
+              <UserModeControl />
               <p>Detect. Defend. Dominate.</p>
             </div>
           </div>
