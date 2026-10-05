@@ -1,15 +1,30 @@
 {
-  "name": "cyberhivex-technology",
+  "name": "cyberhivex-fresh",
   "private": true,
-  "version": "1.0.0",
+  "version": "0.0.0",
   "type": "module",
-  "description": "CyberHiveX Technology - Next-Generation AI-Powered Cybersecurity & Digital Trust Infrastructure",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "dev": "node node_modules/vite/bin/vite.js",
+    "build": "npm run typecheck && node node_modules/vite/bin/vite.js build && node scripts/build-pages.mjs",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "lint": "node node_modules/oxlint/bin/oxlint --deny-warnings",
+    "test:ui": "node scripts/qa.mjs",
+    "preview": "node node_modules/vite/bin/vite.js preview"
+  },
+  "dependencies": {
+    "lucide-react": "^1.50.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
-    "vite": "^6.2.0"
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.0"
+  },
+  "optionalDependencies": {
+    "@rolldown/binding-darwin-arm64": "^1.2.12"
   }
 }

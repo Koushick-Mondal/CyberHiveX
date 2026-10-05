@@ -1,0 +1,43 @@
+/* Motion is an enhancement: no hidden sections, scroll locking or animation-only content. */
+:root { --motion-fast: 180ms; --motion-panel: 280ms; --motion-reveal: 520ms; --motion-ease: cubic-bezier(.2,.7,.2,1); }
+.site-app .route-view { animation: ch-route-enter var(--motion-panel) var(--motion-ease) both; }
+@keyframes ch-route-enter { from { opacity: .9; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+.shell-nav-link { position: relative; }
+.shell-nav-link::after { content: ''; position: absolute; height: 1px; left: 8px; right: 8px; bottom: 8px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform var(--motion-fast) var(--motion-ease); }
+.shell-nav-link:is(:hover, [aria-current='page'])::after { transform: scaleX(1); }
+.btn-cyber-primary > svg, .btn-cyber-outline > svg, .pg-card-link > svg, .ch-text-link > svg, .shell-drawer-link > svg { transition: transform var(--motion-fast) var(--motion-ease); }
+.btn-cyber-primary:hover > svg, .btn-cyber-outline:hover > svg, .pg-card-link:hover > svg, .ch-text-link:hover > svg, .shell-drawer-link:hover > svg { transform: translateX(3px); }
+.site-app :is(.btn-cyber-primary, .btn-cyber-outline):active:not(:disabled) { scale: .985; }
+.site-app :is(.btn-cyber-primary, .btn-cyber-outline) { transition: scale 120ms ease, background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast); }
+.pg-service-list button, .pg-interest-card, .pg-card:has(a) { transition: border-color 180ms, box-shadow 180ms, background 180ms; }
+.pg-interest-card:has(button:hover), .pg-card:has(a:hover) { border-color: #9db7d6; box-shadow: 0 4px 12px rgb(11 42 74 / 5%); }
+.pg-service-list button > svg { transition: transform 180ms var(--motion-ease); }
+.pg-service-list button:hover > svg { transform: translateX(3px); }
+.ch-lifecycle-track li::after { transition: background 220ms, opacity 220ms; }
+.ch-lifecycle-track li:has(button.is-active)::after { background: #1769e0; }
+.ch-stage-circle, .ch-pipeline-track button > svg { transition: transform 220ms var(--motion-ease), background 180ms, color 180ms; }
+.ch-lifecycle-track button:hover .ch-stage-circle { transform: translateY(-2px); }
+.ch-pipeline-track button.is-active > svg { transform: translateY(-2px); }
+.rk-module-content { min-width: 0; }
+.rk-table tbody tr, .rk-table td { transition: background 180ms, box-shadow 180ms; }
+.rk-table tr.is-selected td:first-child { box-shadow: inset 2px 0 #83acd7; }
+.rk-risk, .rk-filters button, .rk-module-nav > button, .rk-response-stages .rk-button { transition: border-color 180ms, background 180ms, color 180ms; }
+.rk-animated-metric { font-variant-numeric: tabular-nums; }
+.rk-timeline li::before { transition: background 180ms, box-shadow 180ms; }
+.rk-timeline li:has(summary:hover)::before { background: #d1e6f7; box-shadow: 0 0 0 3px rgb(164 202 255 / 12%); }
+.rk-dashboard .rk-button:active:not(:disabled) { translate: 0 1px; }
+@media (prefers-reduced-motion: no-preference) {
+  .ch-hero-copy > .ch-eyebrow { animation: ch-hero-enter 480ms var(--motion-ease) both; }
+  .ch-hero-copy > h1 { animation: ch-hero-enter 620ms var(--motion-ease) 100ms both; }
+  .ch-hero-support, .ch-hero-description { animation: ch-hero-enter 480ms var(--motion-ease) 220ms both; }
+  .ch-hero-actions, .ch-tagline { animation: ch-hero-enter 480ms var(--motion-ease) 320ms both; }
+}
+@keyframes ch-hero-enter { from { opacity: .8; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .site-app [data-magnetic] { translate: var(--motion-mx, 0px) var(--motion-my, 0px); transition: translate 360ms var(--motion-ease), scale 220ms var(--motion-ease), color 180ms, border-color 180ms, background 180ms, box-shadow 180ms; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-app .route-view { animation: none; }
+  .site-app [data-magnetic] { translate: none !important; scale: 1 !important; }
+  .btn-cyber-primary > svg, .btn-cyber-outline > svg, .ch-text-link > svg, .pg-card-link > svg, .ch-stage-circle, .ch-pipeline-track button > svg { transform: none !important; transition: none !important; }
+}

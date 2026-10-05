@@ -1,0 +1,17 @@
+export const OSINT_NODES = [
+  { label: 'Domain', value: 'research.example', evidence: 'DEMO-OSINT-01: reserved fictional domain in a prepared inventory.', analysis: 'A seed record only. No DNS lookup or collection is performed.' },
+  { label: 'Subdomain', value: 'portal.research.example', evidence: 'DEMO-OSINT-02: authored subdomain relationship.', analysis: 'The relationship comes from fixtures; no service is contacted.' },
+  { label: 'DNS', value: '192.0.2.55 · prepared A record', evidence: 'DEMO-OSINT-03: an authored address mapping from the fixture.', analysis: 'This documentation IP is not a resolved DNS result. Verify scope before collecting real records.' },
+  { label: 'Public service', value: 'HTTPS · port 443 · sample inventory', evidence: 'DEMO-OSINT-04: a fictional inventory lists an HTTPS interface.', analysis: 'Reachability and access controls have not been tested. No request is sent.' },
+  { label: 'Technology', value: 'Example HTTP service', evidence: 'DEMO-OSINT-05: illustrative service metadata; no real version asserted.', analysis: 'Technology context is a prepared label, not fingerprinting or a vulnerability finding.' },
+  { label: 'Security exposure', value: 'Owner validation pending', evidence: 'DEMO-OSINT-06: ownership and exposure remain unverified.', analysis: 'Review the need for public access and available controls. No threat or compromise is established.' },
+] as const;
+export const FORENSIC_RECORDS = [
+  { id: 'DEMO-EVID-01', time: '12:03:31', title: 'Authentication sample window begins', source: 'Prepared sign-in log', evidence: 'First entry in the fictional 60-second failure window; 18 failures over three accounts.', confidence: 85, analysis: 'Failed attempts warrant review. No successful authentication is recorded.', eventId: 'EVT-9041' },
+  { id: 'DEMO-EVID-02', time: '12:04:42', title: 'Inventory snapshot captured', source: 'Prepared asset manifest', evidence: 'The API diagnostic route is marked public; access controls are unknown.', confidence: 70, analysis: 'An inventory claim, not verified reachability or exploitation.', eventId: 'EVT-9042' },
+  { id: 'DEMO-EVID-03', time: '12:05:01', title: 'Shared source recorded', source: 'Prepared gateway log', evidence: '192.0.2.41 is shared by the sign-in and gateway fixtures.', confidence: 65, analysis: 'Shared context supports comparison; identity and malicious intent are unknown.', eventId: 'EVT-9043' },
+  { id: 'DEMO-EVID-05', time: '12:06:08', title: 'Configuration snapshot compared', source: 'Prepared baseline audit', evidence: 'The fictional gateway management rule differs from the restrictive baseline.', confidence: 90, analysis: 'Validate both snapshots and obtain owner approval. No change history is established.', eventId: 'EVT-9045' },
+  { id: 'DEMO-EVID-06', time: '12:07:10', title: 'Evidence coverage checked', source: 'Prepared bundle manifest', evidence: 'Expected gateway logs for 12:00–12:03 are absent from this bundle.', confidence: 80, analysis: 'Missing data limits conclusions; it is not proof of deletion or tampering.', eventId: 'EVT-9046' },
+] as const;
+export const ANALYST_QUESTIONS = ['Summarize selected event', 'What evidence supports the risk?', 'Is compromise confirmed?', 'What should we do next?'] as const;
+export const UNSUPPORTED_ANSWER = 'No prepared answer matches that question. This local demo cannot investigate new indicators, infer threats, or establish facts about arbitrary input. Select a suggested question to inspect the fictional evidence. No external model or lookup runs.';

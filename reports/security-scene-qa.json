@@ -1,0 +1,57 @@
+{
+  "layouts": [
+    "375: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "390: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "430: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "768: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "1024: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "1280: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "1440: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets",
+    "1920: simplified mobile / desktop nodes; no overlap, clipping or overflow; 44px targets"
+  ],
+  "interactions": [
+    "Keyboard node inspection; all eight manual stages; local review; reset; static reduced-motion mode.",
+    "One automatic scripted cycle; offscreen timer/animation suspension; pause; replay; reset."
+  ],
+  "accessibility": [
+    {
+      "width": 375,
+      "violations": []
+    },
+    {
+      "width": 390,
+      "violations": []
+    },
+    {
+      "width": 430,
+      "violations": []
+    },
+    {
+      "width": 768,
+      "violations": []
+    },
+    {
+      "width": 1024,
+      "violations": []
+    },
+    {
+      "width": 1280,
+      "violations": []
+    },
+    {
+      "width": 1440,
+      "violations": []
+    },
+    {
+      "width": 1920,
+      "violations": []
+    }
+  ],
+  "frameSample": {
+    "environment": "Local headless Chrome; three-second active scene sample, not a device guarantee",
+    "frames": 180,
+    "medianFrameMs": 16.7,
+    "framesOver33ms": 0
+  },
+  "pageErrors": []
+}

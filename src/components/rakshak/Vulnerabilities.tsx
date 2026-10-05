@@ -1,0 +1,15 @@
+import { useState } from 'react';
+import { SEVERITIES, VULNERABILITIES } from './fixtures';
+import { Empty, Risk, SearchField, SelectFilter } from './Evidence';
+
+export default function Vulnerabilities({ onInspect }: { onInspect: (id: string) => void }) {
+  const [query, setQuery] = useState('');
+  const [severity, setSeverity] = useState('All');
+  const [status, setStatus] = useState('All');
+  const [sort, setSort] = useState('Priority highest first');
+  const rows = VULNERABILITIES.filter(item => (severity === 'All' || item.severity === severity) && (status === 'All' || item.status === status) && `${item.id} ${item.title} ${item.asset}`.toLowerCase().includes(query.trim().toLowerCase())).sort((a, b) => sort === 'ID ascending' ? a.id.localeCompare(b.id) : sort === 'Asset ascending' ? a.asset.localeCompare(b.asset) : SEVERITIES.indexOf(a.severity) - SEVERITIES.indexOf(b.severity));
+  function clear() { setQuery(''); setSeverity('All'); setStatus('All'); setSort('Priority highest first'); }
+  return <><div className="rk-callout"><p>DEMO-VULN identifiers represent authored configuration/documentation findings, not CVEs. No scan, exploit check or endpoint request is performed.</p></div><div className="rk-toolbar"><SearchField label="Search findings, IDs or assets" value={query} onChange={setQuery} /></div><div className="rk-filter-grid"><SelectFilter label="Severity" value={severity} onChange={setSeverity} options={['All', ...SEVERITIES]} /><SelectFilter label="Finding status" value={status} onChange={setStatus} options={['All', ...new Set(VULNERABILITIES.map(item => item.status))]} /><SelectFilter label="Sort findings" value={sort} onChange={setSort} options={['Priority highest first', 'ID ascending', 'Asset ascending']} /><button type="button" className="rk-button" onClick={clear}>Clear filters</button></div><p className="rk-result-count" aria-live="polite">{rows.length} of {VULNERABILITIES.length} illustrative findings</p>
+    {rows.length ? <div className="rk-table-wrap" tabIndex={0} role="region" aria-label="Scrollable vulnerability fixture table"><table className="rk-table rk-table--intel"><caption>Prepared findings · no verified vulnerabilities</caption><thead><tr><th scope="col">Demo identifier / finding</th><th scope="col">Asset / severity</th><th scope="col">Exploitability</th><th scope="col">Business impact</th><th scope="col">Status</th><th scope="col">Recommendation / evidence</th></tr></thead><tbody>{rows.map(item => <tr key={item.id}><td><span className="rk-mono">{item.id}</span><span className="rk-table-secondary">{item.title}</span></td><td><span className="rk-mono">{item.asset}</span><span className="rk-table-secondary"><Risk level={item.severity} /></span></td><td>{item.exploitability}</td><td>{item.impact}</td><td>{item.status}</td><td>{item.recommendation}<button type="button" className="rk-text-button" onClick={() => onInspect(item.eventId)}>Inspect supporting {item.eventId}</button></td></tr>)}</tbody></table></div> : <Empty onClear={clear} />}
+  </>;
+}

@@ -1,0 +1,506 @@
+{
+  "layouts": [
+    "home@375: no page overflow",
+    "about@375: no page overflow",
+    "services@375: no page overflow",
+    "rakshak@375: no page overflow",
+    "products@375: no page overflow",
+    "approach@375: no page overflow",
+    "pricing@375: no page overflow",
+    "licensing@375: no page overflow",
+    "disclosure@375: no page overflow",
+    "privacy@375: no page overflow",
+    "terms@375: no page overflow",
+    "cookies@375: no page overflow",
+    "capabilities@375: no page overflow",
+    "solutions@375: no page overflow",
+    "ecosystem@375: no page overflow",
+    "threatlab@375: no page overflow",
+    "notfound@375: no page overflow",
+    "home@390: no page overflow",
+    "about@390: no page overflow",
+    "services@390: no page overflow",
+    "rakshak@390: no page overflow",
+    "products@390: no page overflow",
+    "approach@390: no page overflow",
+    "pricing@390: no page overflow",
+    "licensing@390: no page overflow",
+    "disclosure@390: no page overflow",
+    "privacy@390: no page overflow",
+    "terms@390: no page overflow",
+    "cookies@390: no page overflow",
+    "capabilities@390: no page overflow",
+    "solutions@390: no page overflow",
+    "ecosystem@390: no page overflow",
+    "threatlab@390: no page overflow",
+    "notfound@390: no page overflow",
+    "home@430: no page overflow",
+    "about@430: no page overflow",
+    "services@430: no page overflow",
+    "rakshak@430: no page overflow",
+    "products@430: no page overflow",
+    "approach@430: no page overflow",
+    "pricing@430: no page overflow",
+    "licensing@430: no page overflow",
+    "disclosure@430: no page overflow",
+    "privacy@430: no page overflow",
+    "terms@430: no page overflow",
+    "cookies@430: no page overflow",
+    "capabilities@430: no page overflow",
+    "solutions@430: no page overflow",
+    "ecosystem@430: no page overflow",
+    "threatlab@430: no page overflow",
+    "notfound@430: no page overflow",
+    "home@768: no page overflow",
+    "about@768: no page overflow",
+    "services@768: no page overflow",
+    "rakshak@768: no page overflow",
+    "products@768: no page overflow",
+    "approach@768: no page overflow",
+    "pricing@768: no page overflow",
+    "licensing@768: no page overflow",
+    "disclosure@768: no page overflow",
+    "privacy@768: no page overflow",
+    "terms@768: no page overflow",
+    "cookies@768: no page overflow",
+    "capabilities@768: no page overflow",
+    "solutions@768: no page overflow",
+    "ecosystem@768: no page overflow",
+    "threatlab@768: no page overflow",
+    "notfound@768: no page overflow",
+    "home@1024: no page overflow",
+    "about@1024: no page overflow",
+    "services@1024: no page overflow",
+    "rakshak@1024: no page overflow",
+    "products@1024: no page overflow",
+    "approach@1024: no page overflow",
+    "pricing@1024: no page overflow",
+    "licensing@1024: no page overflow",
+    "disclosure@1024: no page overflow",
+    "privacy@1024: no page overflow",
+    "terms@1024: no page overflow",
+    "cookies@1024: no page overflow",
+    "capabilities@1024: no page overflow",
+    "solutions@1024: no page overflow",
+    "ecosystem@1024: no page overflow",
+    "threatlab@1024: no page overflow",
+    "notfound@1024: no page overflow",
+    "home@1280: no page overflow",
+    "about@1280: no page overflow",
+    "services@1280: no page overflow",
+    "rakshak@1280: no page overflow",
+    "products@1280: no page overflow",
+    "approach@1280: no page overflow",
+    "pricing@1280: no page overflow",
+    "licensing@1280: no page overflow",
+    "disclosure@1280: no page overflow",
+    "privacy@1280: no page overflow",
+    "terms@1280: no page overflow",
+    "cookies@1280: no page overflow",
+    "capabilities@1280: no page overflow",
+    "solutions@1280: no page overflow",
+    "ecosystem@1280: no page overflow",
+    "threatlab@1280: no page overflow",
+    "notfound@1280: no page overflow",
+    "home@1440: no page overflow",
+    "about@1440: no page overflow",
+    "services@1440: no page overflow",
+    "rakshak@1440: no page overflow",
+    "products@1440: no page overflow",
+    "approach@1440: no page overflow",
+    "pricing@1440: no page overflow",
+    "licensing@1440: no page overflow",
+    "disclosure@1440: no page overflow",
+    "privacy@1440: no page overflow",
+    "terms@1440: no page overflow",
+    "cookies@1440: no page overflow",
+    "capabilities@1440: no page overflow",
+    "solutions@1440: no page overflow",
+    "ecosystem@1440: no page overflow",
+    "threatlab@1440: no page overflow",
+    "notfound@1440: no page overflow",
+    "home@1920: no page overflow",
+    "about@1920: no page overflow",
+    "services@1920: no page overflow",
+    "rakshak@1920: no page overflow",
+    "products@1920: no page overflow",
+    "approach@1920: no page overflow",
+    "pricing@1920: no page overflow",
+    "licensing@1920: no page overflow",
+    "disclosure@1920: no page overflow",
+    "privacy@1920: no page overflow",
+    "terms@1920: no page overflow",
+    "cookies@1920: no page overflow",
+    "capabilities@1920: no page overflow",
+    "solutions@1920: no page overflow",
+    "ecosystem@1920: no page overflow",
+    "threatlab@1920: no page overflow",
+    "notfound@1920: no page overflow",
+    "module:dashboard@375: no page overflow",
+    "module:asset-discovery@375: no page overflow",
+    "module:threat-intelligence@375: no page overflow",
+    "module:security-events@375: no page overflow",
+    "module:risk-analysis@375: no page overflow",
+    "module:vulnerability-intelligence@375: no page overflow",
+    "module:osint@375: no page overflow",
+    "module:digital-forensics@375: no page overflow",
+    "module:incident-timeline@375: no page overflow",
+    "module:ai-security-analyst@375: no page overflow",
+    "module:ai-recommendations@375: no page overflow",
+    "module:security-reports@375: no page overflow",
+    "module:response-automation@375: no page overflow",
+    "module:dashboard@390: no page overflow",
+    "module:asset-discovery@390: no page overflow",
+    "module:threat-intelligence@390: no page overflow",
+    "module:security-events@390: no page overflow",
+    "module:risk-analysis@390: no page overflow",
+    "module:vulnerability-intelligence@390: no page overflow",
+    "module:osint@390: no page overflow",
+    "module:digital-forensics@390: no page overflow",
+    "module:incident-timeline@390: no page overflow",
+    "module:ai-security-analyst@390: no page overflow",
+    "module:ai-recommendations@390: no page overflow",
+    "module:security-reports@390: no page overflow",
+    "module:response-automation@390: no page overflow",
+    "module:dashboard@430: no page overflow",
+    "module:asset-discovery@430: no page overflow",
+    "module:threat-intelligence@430: no page overflow",
+    "module:security-events@430: no page overflow",
+    "module:risk-analysis@430: no page overflow",
+    "module:vulnerability-intelligence@430: no page overflow",
+    "module:osint@430: no page overflow",
+    "module:digital-forensics@430: no page overflow",
+    "module:incident-timeline@430: no page overflow",
+    "module:ai-security-analyst@430: no page overflow",
+    "module:ai-recommendations@430: no page overflow",
+    "module:security-reports@430: no page overflow",
+    "module:response-automation@430: no page overflow",
+    "module:dashboard@768: no page overflow",
+    "module:asset-discovery@768: no page overflow",
+    "module:threat-intelligence@768: no page overflow",
+    "module:security-events@768: no page overflow",
+    "module:risk-analysis@768: no page overflow",
+    "module:vulnerability-intelligence@768: no page overflow",
+    "module:osint@768: no page overflow",
+    "module:digital-forensics@768: no page overflow",
+    "module:incident-timeline@768: no page overflow",
+    "module:ai-security-analyst@768: no page overflow",
+    "module:ai-recommendations@768: no page overflow",
+    "module:security-reports@768: no page overflow",
+    "module:response-automation@768: no page overflow",
+    "module:dashboard@1024: no page overflow",
+    "module:asset-discovery@1024: no page overflow",
+    "module:threat-intelligence@1024: no page overflow",
+    "module:security-events@1024: no page overflow",
+    "module:risk-analysis@1024: no page overflow",
+    "module:vulnerability-intelligence@1024: no page overflow",
+    "module:osint@1024: no page overflow",
+    "module:digital-forensics@1024: no page overflow",
+    "module:incident-timeline@1024: no page overflow",
+    "module:ai-security-analyst@1024: no page overflow",
+    "module:ai-recommendations@1024: no page overflow",
+    "module:security-reports@1024: no page overflow",
+    "module:response-automation@1024: no page overflow",
+    "module:dashboard@1280: no page overflow",
+    "module:asset-discovery@1280: no page overflow",
+    "module:threat-intelligence@1280: no page overflow",
+    "module:security-events@1280: no page overflow",
+    "module:risk-analysis@1280: no page overflow",
+    "module:vulnerability-intelligence@1280: no page overflow",
+    "module:osint@1280: no page overflow",
+    "module:digital-forensics@1280: no page overflow",
+    "module:incident-timeline@1280: no page overflow",
+    "module:ai-security-analyst@1280: no page overflow",
+    "module:ai-recommendations@1280: no page overflow",
+    "module:security-reports@1280: no page overflow",
+    "module:response-automation@1280: no page overflow",
+    "module:dashboard@1440: no page overflow",
+    "module:asset-discovery@1440: no page overflow",
+    "module:threat-intelligence@1440: no page overflow",
+    "module:security-events@1440: no page overflow",
+    "module:risk-analysis@1440: no page overflow",
+    "module:vulnerability-intelligence@1440: no page overflow",
+    "module:osint@1440: no page overflow",
+    "module:digital-forensics@1440: no page overflow",
+    "module:incident-timeline@1440: no page overflow",
+    "module:ai-security-analyst@1440: no page overflow",
+    "module:ai-recommendations@1440: no page overflow",
+    "module:security-reports@1440: no page overflow",
+    "module:response-automation@1440: no page overflow",
+    "module:dashboard@1920: no page overflow",
+    "module:asset-discovery@1920: no page overflow",
+    "module:threat-intelligence@1920: no page overflow",
+    "module:security-events@1920: no page overflow",
+    "module:risk-analysis@1920: no page overflow",
+    "module:vulnerability-intelligence@1920: no page overflow",
+    "module:osint@1920: no page overflow",
+    "module:digital-forensics@1920: no page overflow",
+    "module:incident-timeline@1920: no page overflow",
+    "module:ai-security-analyst@1920: no page overflow",
+    "module:ai-recommendations@1920: no page overflow",
+    "module:security-reports@1920: no page overflow",
+    "module:response-automation@1920: no page overflow"
+  ],
+  "accessibility": [
+    {
+      "route": "home",
+      "violations": []
+    },
+    {
+      "route": "about",
+      "violations": []
+    },
+    {
+      "route": "services",
+      "violations": []
+    },
+    {
+      "route": "rakshak",
+      "violations": []
+    },
+    {
+      "route": "products",
+      "violations": []
+    },
+    {
+      "route": "approach",
+      "violations": []
+    },
+    {
+      "route": "pricing",
+      "violations": []
+    },
+    {
+      "route": "licensing",
+      "violations": []
+    },
+    {
+      "route": "disclosure",
+      "violations": []
+    },
+    {
+      "route": "privacy",
+      "violations": []
+    },
+    {
+      "route": "terms",
+      "violations": []
+    },
+    {
+      "route": "cookies",
+      "violations": []
+    },
+    {
+      "route": "capabilities",
+      "violations": []
+    },
+    {
+      "route": "solutions",
+      "violations": []
+    },
+    {
+      "route": "ecosystem",
+      "violations": []
+    },
+    {
+      "route": "threatlab",
+      "violations": []
+    },
+    {
+      "route": "notfound",
+      "violations": []
+    },
+    {
+      "route": "home@390",
+      "violations": []
+    },
+    {
+      "route": "about@390",
+      "violations": []
+    },
+    {
+      "route": "services@390",
+      "violations": []
+    },
+    {
+      "route": "rakshak@390",
+      "violations": []
+    },
+    {
+      "route": "products@390",
+      "violations": []
+    },
+    {
+      "route": "approach@390",
+      "violations": []
+    },
+    {
+      "route": "pricing@390",
+      "violations": []
+    },
+    {
+      "route": "licensing@390",
+      "violations": []
+    },
+    {
+      "route": "disclosure@390",
+      "violations": []
+    },
+    {
+      "route": "privacy@390",
+      "violations": []
+    },
+    {
+      "route": "terms@390",
+      "violations": []
+    },
+    {
+      "route": "cookies@390",
+      "violations": []
+    },
+    {
+      "route": "capabilities@390",
+      "violations": []
+    },
+    {
+      "route": "solutions@390",
+      "violations": []
+    },
+    {
+      "route": "ecosystem@390",
+      "violations": []
+    },
+    {
+      "route": "threatlab@390",
+      "violations": []
+    },
+    {
+      "route": "notfound@390",
+      "violations": []
+    },
+    {
+      "route": "module:Dashboard",
+      "violations": []
+    },
+    {
+      "route": "module:Asset Discovery",
+      "violations": []
+    },
+    {
+      "route": "module:Threat Intelligence",
+      "violations": []
+    },
+    {
+      "route": "module:Risk Analysis",
+      "violations": []
+    },
+    {
+      "route": "module:Vulnerability Intelligence",
+      "violations": []
+    },
+    {
+      "route": "module:OSINT",
+      "violations": []
+    },
+    {
+      "route": "module:Digital Forensics",
+      "violations": []
+    },
+    {
+      "route": "module:Incident Timeline",
+      "violations": []
+    },
+    {
+      "route": "module:AI Security Analyst",
+      "violations": []
+    },
+    {
+      "route": "module:AI Recommendations",
+      "violations": []
+    },
+    {
+      "route": "module:Security Reports",
+      "violations": []
+    },
+    {
+      "route": "module:Response / Automation",
+      "violations": []
+    },
+    {
+      "route": "module:Dashboard@390",
+      "violations": []
+    },
+    {
+      "route": "module:Asset Discovery@390",
+      "violations": []
+    },
+    {
+      "route": "module:Threat Intelligence@390",
+      "violations": []
+    },
+    {
+      "route": "module:Security Events@390",
+      "violations": []
+    },
+    {
+      "route": "module:Risk Analysis@390",
+      "violations": []
+    },
+    {
+      "route": "module:Vulnerability Intelligence@390",
+      "violations": []
+    },
+    {
+      "route": "module:OSINT@390",
+      "violations": []
+    },
+    {
+      "route": "module:Digital Forensics@390",
+      "violations": []
+    },
+    {
+      "route": "module:Incident Timeline@390",
+      "violations": []
+    },
+    {
+      "route": "module:AI Security Analyst@390",
+      "violations": []
+    },
+    {
+      "route": "module:AI Recommendations@390",
+      "violations": []
+    },
+    {
+      "route": "module:Security Reports@390",
+      "violations": []
+    },
+    {
+      "route": "module:Response / Automation@390",
+      "violations": []
+    }
+  ],
+  "interactions": [
+    "Menu opens, traps focus, Escape closes and restores focus",
+    "Hero node inspection and reduced-motion static stage progression/reset",
+    "Compact evidence, empty search, filter reset, simulated event, thirteen modules and report download",
+    "Threat severity filtering, six-node OSINT progression/reset, prepared analyst explanation and approval-gated seven-stage response",
+    "Asset inspection and related event lookup; finding sorting and empty-state recovery",
+    "Service catalogue search, empty state and filter reset",
+    "Custom quote chooser with no invented prices",
+    "OSINT rejects real domain input and produces labelled fictional result",
+    "Contact validation and honest unsent local draft",
+    "Threat simulation reset cancels pending events and complete run shows seven records",
+    "Crawlable navigation and browser back/forward restore the correct page",
+    "Legacy #services: Clarity across your security workflow.",
+    "Legacy #security: A connected workflow.A clearer next decision.",
+    "Legacy #licensing: Understand your digital exposure.",
+    "Legacy #cyber-intelligence: Explore a security investigation, step by step.",
+    "Unknown clean path renders professional noindex 404 view"
+  ],
+  "performance": {
+    "homeJavaScript": [],
+    "bytes": 0,
+    "gzipBytes": 0
+  },
+  "consoleErrors": []
+}

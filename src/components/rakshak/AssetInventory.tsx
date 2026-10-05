@@ -1,0 +1,16 @@
+import { useState } from 'react';
+import { ASSETS } from './fixtures';
+import { Empty, Risk, SearchField, SelectFilter } from './Evidence';
+
+export default function AssetInventory({ onRelated }: { onRelated: (name: string) => void }) {
+  const [query, setQuery] = useState('');
+  const [environment, setEnvironment] = useState('All');
+  const [selected, setSelected] = useState('api.example.com');
+  const rows = ASSETS.filter(asset => (environment === 'All' || asset.environment === environment) && `${asset.name} ${asset.address} ${asset.technology} ${asset.owner}`.toLowerCase().includes(query.trim().toLowerCase()));
+  const active = rows.find(asset => asset.name === selected);
+  return <><div className="rk-callout"><p>Prepared inventory, not discovered hosts. All domains and IPs are reserved examples. “Last seen” is a fixture timestamp.</p></div><div className="rk-toolbar"><SearchField label="Search assets, IPs or technology" value={query} onChange={setQuery} /><SelectFilter label="Environment" value={environment} onChange={setEnvironment} options={['All', ...new Set(ASSETS.map(asset => asset.environment))]} /></div>
+    <p className="rk-result-count" aria-live="polite">{rows.length} of {ASSETS.length} fictional assets</p>
+    {rows.length ? <div className="rk-table-wrap" tabIndex={0} role="region" aria-label="Scrollable asset inventory"><table className="rk-table rk-table--inventory"><caption>Fictional asset inventory · 2026-01-15 UTC</caption><thead><tr><th scope="col">Asset / IP</th><th scope="col">Environment / technology</th><th scope="col">Risk</th><th scope="col">Last seen</th><th scope="col">Status / exposure</th></tr></thead><tbody>{rows.map(asset => <tr key={asset.name} className={selected === asset.name ? 'is-selected' : ''}><td><button type="button" className="rk-event-link rk-mono" aria-pressed={selected === asset.name} onClick={() => setSelected(asset.name)}>{asset.name}</button><span className="rk-table-secondary rk-mono">{asset.address}</span></td><td>{asset.environment}<span className="rk-table-secondary">{asset.technology}</span></td><td><Risk level={asset.risk} /></td><td>{asset.lastSeen}</td><td>{asset.status}<span className="rk-table-secondary">{asset.exposure}</span></td></tr>)}</tbody></table></div> : <Empty onClear={() => { setQuery(''); setEnvironment('All'); }} />}
+    {active && <section className="rk-inspector" aria-label="Selected asset details"><span className="rk-label">Asset profile</span><h4 className="rk-mono">{active.name}</h4><dl className="rk-asset-meta"><div><dt>Owner</dt><dd>{active.owner}</dd></div><div><dt>Type</dt><dd>{active.kind}</dd></div><div><dt>Environment</dt><dd>{active.environment}</dd></div><div><dt>Technology</dt><dd>{active.technology}</dd></div><div><dt>Fixture risk</dt><dd><Risk level={active.risk} /></dd></div></dl><p>{active.note}</p><span className="rk-label">Prepared relationships</span><div className="rk-related-assets">{active.relationships.map(name => <button key={name} type="button" className="rk-button rk-mono" onClick={() => { setSelected(name); setQuery(''); setEnvironment('All'); }}>{name}</button>)}</div><button type="button" className="rk-text-button" onClick={() => onRelated(active.name)}>View related events</button></section>}
+  </>;
+}

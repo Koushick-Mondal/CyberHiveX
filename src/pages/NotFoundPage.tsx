@@ -1,0 +1,8 @@
+import { ArrowRight } from 'lucide-react';
+import { RouteLink } from '../components/ui';
+import type { PageProps } from '../types/site';
+import './pages.css';
+
+export default function NotFoundPage({ setActivePage }: PageProps) {
+  return <div className="chx-pages pg-not-found"><div className="cyber-container"><header className="pg-hero"><div className="pg-eyebrow">404 · Page not found</div><h1>We couldn’t find that page.</h1><p className="pg-lead">The address may be incomplete, outdated, or no longer available. Use one of the routes below to continue.</p><div className="pg-actions"><RouteLink page="home" onNavigate={setActivePage} className="btn-cyber-primary">Return home <ArrowRight size={16} aria-hidden="true" /></RouteLink><RouteLink page="services" onNavigate={setActivePage} className="btn-cyber-outline">Explore services</RouteLink><RouteLink page="licensing" onNavigate={setActivePage} className="btn-cyber-outline">Contact CyberHiveX</RouteLink></div></header><section className="pg-grid-two" aria-label="Useful destinations"><article className="pg-card"><h2>Product portfolio</h2><p>Explore Rakshak AI’s interactive demonstration and current availability status.</p><RouteLink page="products" onNavigate={setActivePage} className="pg-card-link">Explore products <ArrowRight size={16} aria-hidden="true" /></RouteLink></article><article className="pg-card"><h2>Our approach</h2><p>See how authorized assessment connects to defense, response, and improvement.</p><RouteLink page="approach" onNavigate={setActivePage} className="pg-card-link">Explore our approach <ArrowRight size={16} aria-hidden="true" /></RouteLink></article></section></div></div>;
+}

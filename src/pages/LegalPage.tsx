@@ -1,0 +1,47 @@
+import { ArrowRight } from 'lucide-react';
+import { Badge, RouteLink } from '../components/ui';
+import type { PageProps } from '../types/site';
+import './pages.css';
+
+type DocumentId = 'privacy' | 'terms' | 'cookies';
+interface NoticeSection { id: string; title: string; paragraphs: readonly string[] }
+interface WebsiteNotice { eyebrow: string; title: string; lead: string; sections: readonly NoticeSection[] }
+
+const notices: Record<DocumentId, WebsiteNotice> = {
+  privacy: {
+    eyebrow: 'Privacy · Website notice', title: 'How this front end handles information.', lead: 'An implementation-based description of the current website, pending review by the owner. This is not an approved privacy policy.',
+    sections: [
+      { id: 'interaction-data', title: 'Local page interactions', paragraphs: ['Search terms, category selections, readiness-checklist answers, and demo activity are held in page state. The reviewed front end does not save these interactions to cookies or browser storage and does not transmit them as analytics.', 'Navigating away from a page or reloading generally resets its local state. Browser autofill, downloaded files, and browser history are controlled by the browser and user, rather than by this page state.'] },
+      { id: 'inquiry-data', title: 'Enquiry drafts and optional delivery', paragraphs: ['The contact form asks for a name, email address, organization, area of interest, and requirements. Preparing a request creates a local draft. Downloading a draft creates a file on your device; it does not send the enquiry.', 'An explicitly configured same-origin contact endpoint can enable a separate Send request action. When you choose that action, the draft details are sent to that endpoint. The contact page identifies whether delivery is configured and only reports confirmed receipt after a server acknowledgment.', 'Do not include passwords, confidential incident artifacts, or sensitive vulnerability evidence. A dedicated disclosure route is not configured.'] },
+      { id: 'external-requests', title: 'External fonts and infrastructure', paragraphs: ['The website loads Google Fonts from fonts.googleapis.com and fonts.gstatic.com. Those requests reach external servers, which receive network request information such as the requesting IP address and browser headers.', 'The website host, CDN, or any configured contact backend may process request information or logs. Their configuration, logging, retention, and access arrangements have not been verified in the front-end code.'] },
+      { id: 'owner-confirmation', title: 'Items requiring owner confirmation', paragraphs: ['The organization must confirm the applicable data controller details, backend processing, service providers, retention and deletion rules, legal grounds, jurisdiction-specific rights, and a verified privacy contact before publishing an approved policy.', 'No retention period, data-sale assurance, or legal commitment is established by this draft. Changes to hosting, contact delivery, or tracking require a corresponding review of the notice.'] },
+    ],
+  },
+  terms: {
+    eyebrow: 'Terms · Website notice', title: 'Website use and demonstrated capabilities.', lead: 'A description of the site’s current boundaries for owner review. This is not an approved contract or complete terms of service.',
+    sections: [
+      { id: 'site-purpose', title: 'Information and demonstrations', paragraphs: ['This website presents CyberHiveX’s company information, security service disciplines, and the Rakshak AI product direction. The local demos use scripted fictional data; they do not scan systems, execute attacks, or establish an organization’s security posture.', 'Illustrative timelines, investigation events, and product intentions are not measured performance results, guarantees, or committed release dates. The available website demonstration does not establish commercial production availability.'] },
+      { id: 'engagement-boundaries', title: 'Enquiries and engagements', paragraphs: ['Preparing an enquiry or downloading its draft does not submit a request or create an engagement. Even a confirmed server receipt does not schedule an assessment or agree commercial terms.', 'Scope, deliverables, availability, timing, deployment, licensing, support, and responsibilities require a separate agreed engagement. Pricing is custom quote-based; the website does not offer a fixed-price purchase flow.'] },
+      { id: 'testing-permission', title: 'Security testing requires authorization', paragraphs: ['Website content and disclosure guidance do not grant permission to test CyberHiveX, customer, or third-party systems. Active assessments require explicit authorization from the relevant owner, defined assets, exclusions, and rules of engagement.', 'No safe harbor promise or authorization is established by this notice. Request a verified reporting channel before sharing sensitive vulnerability evidence.'] },
+      { id: 'terms-review', title: 'Owner review still required', paragraphs: ['The owner must approve any binding terms, including applicable jurisdiction, intellectual-property conditions, permitted-use rules, responsibilities, and contractual limitations. This implementation notice does not establish those legal provisions.', 'For requirements or engagement questions, use the general enquiry page and check its stated delivery status. Keep secrets and confidential evidence out of the enquiry.'] },
+    ],
+  },
+  cookies: {
+    eyebrow: 'Cookies · Website notice', title: 'Browser storage and external requests.', lead: 'A notice based on the reviewed front end. Hosting behavior and future integrations require owner verification before an approved cookie policy is published.',
+    sections: [
+      { id: 'current-storage', title: 'Observed browser storage', paragraphs: ['No analytics integration, tracking cookie, or site-written cookie was observed in the current front-end implementation. The reviewed pages do not use localStorage or sessionStorage for enquiry drafts, checklist answers, searches, or demo state.', 'These observations describe the front end rather than every response issued by the deployed host or contact backend. They are not a guarantee that infrastructure never sets a cookie.'] },
+      { id: 'fonts-and-requests', title: 'Google Fonts requests', paragraphs: ['Google Fonts stylesheets and font files are requested from external Google servers. This is an external network request even though no analytics integration was observed.', 'External servers receive information needed to handle the request, including network and browser headers. External provider behavior and hosting logs are not determined by this front-end code.'] },
+      { id: 'browser-controls', title: 'Browser controls and downloaded files', paragraphs: ['You can review site data and request permissions using your browser’s settings. Font requests can be blocked using browser or network controls, which may change typography.', 'Downloaded enquiry drafts and demo output are ordinary files saved to your device, not cookies. Browser history, autofill, and file retention follow your browser and device settings.'] },
+      { id: 'cookie-review', title: 'Owner verification and future changes', paragraphs: ['The owner should review live hosting, CDN responses, any configured contact endpoint, and external-provider behavior. Hosting logs, infrastructure cookie behavior, and retention are currently unverified.', 'The current front end does not present a cookie consent banner because no nonessential cookie or analytics integration was observed. If such processing is added, its purpose and applicable consent requirements must be reviewed before deployment.'] },
+    ],
+  },
+};
+
+export default function LegalPage({ document, setActivePage }: PageProps & { document: DocumentId }) {
+  const notice = notices[document];
+  return <div className="chx-pages pg-legal"><div className="cyber-container">
+    <header className="pg-hero"><div className="pg-eyebrow">{notice.eyebrow}</div><h1>{notice.title}</h1><p className="pg-lead">{notice.lead}</p><Badge>Website notice / draft for owner review</Badge><p className="pg-note"><strong>Not an approved policy.</strong> This draft records observable website practices and known configuration gaps. The owner must verify deployed behavior and approve any legal commitments.</p></header>
+    <div className="pg-notice-layout"><nav className="pg-notice-nav" aria-label={`${document} notice sections`}>{notice.sections.map((section) => <a key={section.id} href={`#${document}-${section.id}`}>{section.title}</a>)}</nav><div className="pg-notice-body">{notice.sections.map((section) => <section key={section.id} id={`${document}-${section.id}`}><h2>{section.title}</h2>{section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</section>)}</div></div>
+    <section className="pg-cta" aria-label="Related notices"><div><h2>Questions about this website?</h2><p>Prepare a non-sensitive enquiry and check whether delivery is configured.</p><div className="pg-related-notices"><RouteLink page="privacy" onNavigate={setActivePage}>Privacy notice</RouteLink><RouteLink page="terms" onNavigate={setActivePage}>Website terms notice</RouteLink><RouteLink page="cookies" onNavigate={setActivePage}>Cookie notice</RouteLink></div></div><RouteLink page="licensing" onNavigate={setActivePage} className="btn-cyber-outline">General enquiry <ArrowRight size={16} aria-hidden="true" /></RouteLink></section>
+  </div></div>;
+}
