@@ -6,9 +6,6 @@ import { legacyHashRoutes, resolvePage, routes } from './routes';
 import type { Navigate, PageId, PageProps } from './types/site';
 import { usePageMotion } from './hooks/usePageMotion';
 import { useMagneticInteractions } from './hooks/useMagneticInteractions';
-import UserModeOnboarding from './components/UserModeOnboarding';
-import UserModeProvider from './state/UserModeProvider';
-import useUserMode from './state/useUserMode';
 
 const LegalPage = lazy(() => import('./pages/LegalPage'));
 const pages: Record<PageId, ComponentType<PageProps>> = {
@@ -78,8 +75,6 @@ function RouteView({ route, setActivePage, mainRef, hasNavigated }: { route: Rou
 }
 
 function AppShell() {
-  const { mode, setMode } = useUserMode();
-  const [onboardingVisible, setOnboardingVisible] = useState(() => mode === null);
   const [route, setRoute] = useState(currentRoute);
   const mainRef = useRef<HTMLElement>(null);
   const hasNavigated = useRef(false);
@@ -121,11 +116,10 @@ function AppShell() {
       </main>
       <Footer setActivePage={navigate} />
       </div>
-      {onboardingVisible && <UserModeOnboarding onSelect={setMode} onFinish={() => setOnboardingVisible(false)} onDismiss={() => setOnboardingVisible(false)} />}
     </>
   );
 }
 
 export default function App() {
-  return <UserModeProvider><AppShell /></UserModeProvider>;
+  return <AppShell />;
 }

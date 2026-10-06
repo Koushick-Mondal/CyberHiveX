@@ -4,7 +4,6 @@ import { RouteLink } from './ui';
 import './shell.css';
 import type { PageId, PageProps } from '../types/site';
 import { routes } from '../routes';
-import UserModeControl from './UserModeControl';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -30,7 +29,6 @@ export default function Footer({ setActivePage }: PageProps) {
             </RouteLink>
              <p>AI-Powered Proactive Cybersecurity &amp; Digital Defense</p>
              <p className="shell-footer-tagline" data-tagline="true">DETECT. DEFEND. DOMINATE.</p>
-             <UserModeControl />
           </div>
            {groups.map(({ heading, links }) => <nav key={heading} className="shell-footer-links" aria-labelledby={`footer-${heading.toLowerCase()}-heading`}><h2 id={`footer-${heading.toLowerCase()}-heading`}>{heading}</h2>{linkList(links)}</nav>)}
            <div className="shell-footer-contact"><h2>Start a conversation</h2><p>Discuss your security priorities and assessment requirements.</p><RouteLink page="licensing" onNavigate={setActivePage} className="shell-footer-contact-link">Request security assessment<ArrowRight size={16} aria-hidden="true" /></RouteLink><p className="shell-footer-location">Greater Noida, Uttar Pradesh, India</p></div>

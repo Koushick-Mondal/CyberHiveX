@@ -500,9 +500,9 @@
   "performance": {
     "homeJavaScript": [
       {
-        "path": "/assets/index-4jVx6lma.js",
-        "bytes": 248673,
-        "gzipBytes": 76931
+        "path": "/assets/index-Ds-r4W6o.js",
+        "bytes": 241346,
+        "gzipBytes": 74986
       },
       {
         "path": "/assets/jsx-runtime-DLNB9Qsn.js",
@@ -510,24 +510,24 @@
         "gzipBytes": 3115
       },
       {
-        "path": "/assets/HomePage-S1_qQ4wB.js",
-        "bytes": 55964,
-        "gzipBytes": 16388
+        "path": "/assets/HomePage-Bi38cuab.js",
+        "bytes": 55320,
+        "gzipBytes": 16205
       },
       {
-        "path": "/assets/RakshakCommandCenterPreview-DNBxOnqk.js",
-        "bytes": 29417,
-        "gzipBytes": 8531
-      },
-      {
-        "path": "/assets/search-MKa7_ijc.js",
+        "path": "/assets/search-DH23ynfS.js",
         "bytes": 203,
-        "gzipBytes": 182
+        "gzipBytes": 183
       },
       {
-        "path": "/assets/rotate-ccw-BwlvgbN0.js",
+        "path": "/assets/RakshakCommandCenterPreview-CRjrPdX0.js",
+        "bytes": 29523,
+        "gzipBytes": 8566
+      },
+      {
+        "path": "/assets/rotate-ccw-BqXpBuUx.js",
         "bytes": 391,
-        "gzipBytes": 272
+        "gzipBytes": 273
       },
       {
         "path": "/assets/serviceCatalogue-ebfzVvrt.js",
@@ -535,8 +535,8 @@
         "gzipBytes": 1854
       }
     ],
-    "bytes": 348118,
-    "gzipBytes": 107273
+    "bytes": 340253,
+    "gzipBytes": 105182
   },
   "consoleErrors": []
 }

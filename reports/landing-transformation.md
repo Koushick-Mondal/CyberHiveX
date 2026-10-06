@@ -4,13 +4,13 @@
 
 Only the landing page was art-directed. The existing routes, page content, navigation behavior, contact adapter, Rakshak product page, and secondary page styling were not redesigned.
 
-The homepage now uses a dark, structured editorial canvas with:
+The homepage now uses a light, structured institutional canvas with:
 
-- A framed hero with large positioning typography, dark grid atmosphere, restrained blue accents, CTA hierarchy, and technical metadata.
+- A restrained hero with strong positioning typography, subtle borders, restrained blue accents, clear CTA hierarchy, and technical metadata.
 - A responsive SVG/CSS Rakshak AI intelligence core with architectural framing, eight fictional nodes, layered rings, selected-node evidence, simulated telemetry, and keyboard/manual playback controls.
 - A capability strip using real CyberHiveX capabilities rather than unsupported metrics.
-- The existing compact/full Rakshak demos, lifecycle, proactive/reactive, operations, pipeline, services, audiences, FAQ, and contact CTAs restyled for the dark landing system.
-- A temporary homepage body theme class that is removed on route change, so other pages keep the light navigation/footer shell.
+- The existing compact/full Rakshak demos, lifecycle, proactive/reactive, operations, pipeline, services, audiences, FAQ, and contact CTAs retained within the light landing system.
+- One consistent light shell across all routes. Dark surfaces are limited to Rakshak/product demonstration panels where they communicate technical information.
 
 No WebGL, Three.js, new runtime dependency, stock imagery, live telemetry, AI inference, security scan, or real response action was added. Fictional content remains explicitly labelled.
 

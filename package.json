@@ -10,7 +10,6 @@
     "lint": "node node_modules/oxlint/bin/oxlint --deny-warnings",
     "test:ui": "node scripts/qa.mjs",
     "test:landing": "node scripts/landing-qa.mjs",
-    "test:mode": "node scripts/mode-qa.mjs",
     "preview": "node node_modules/vite/bin/vite.js preview"
   },
   "dependencies": {

@@ -41,10 +41,17 @@
     {
       "width": 1920,
       "violations": []
+    },
+    {
+      "width": "390 menu",
+      "violations": []
     }
   ],
   "interactions": [
-    "Explore CTA focus; product search/empty/reset/simulation; compact evidence preserved"
+    "Explore CTA focus; product search/empty/reset/simulation; compact evidence preserved",
+    "Contact CTA works and light shell remains consistent after returning home",
+    "Light mobile menu focus containment, Escape and focus restoration",
+    "All routes retain the light institutional shell"
   ],
   "errors": []
 }

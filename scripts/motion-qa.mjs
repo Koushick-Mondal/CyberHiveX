@@ -15,8 +15,6 @@ try {
   page.setDefaultTimeout(15000);
   page.on('pageerror', error => results.errors.push(error.message));
   await page.goto(base);
-  const onboarding = page.locator('dialog.mode-onboarding');
-  if (await onboarding.count()) { await onboarding.locator('.mode-card--technical').click(); await onboarding.waitFor({ state: 'hidden' }); }
   const scene = page.getByRole('region', { name: 'Rakshak AI security intelligence visualization', exact: true });
   await scene.waitFor();
   await scene.getByRole('button', { name: 'Reset hero simulation' }).click();
@@ -38,6 +36,8 @@ try {
   assert.equal(await cta.evaluate(element => getComputedStyle(element).outlineStyle), 'solid');
   results.interactions.push('CTA attraction is bounded; pointer leave restores position; keyboard focus stays visible.');
 
+  const play = scene.getByRole('button', { name: 'Play demo sequence' });
+  if (await play.count() === 0) await scene.getByRole('button', { name: 'Pause demo sequence' }).click();
   await scene.getByRole('button', { name: 'Play demo sequence' }).click();
   await scene.getByRole('status').getByText('Event detected · fixture', { exact: true }).waitFor();
   assert.equal(await scene.locator('.sc-network-desktop .sc-packet').count(), 1);
@@ -101,8 +101,6 @@ try {
   const touchPage = await touch.newPage();
   touchPage.on('pageerror', error => results.errors.push(error.message));
   await touchPage.goto(base);
-  const touchOnboarding = touchPage.locator('dialog.mode-onboarding');
-  if (await touchOnboarding.count()) { await touchOnboarding.locator('.mode-card--technical').click(); await touchOnboarding.waitFor({ state: 'hidden' }); }
   const touchScene = touchPage.getByRole('region', { name: 'Rakshak AI security intelligence visualization', exact: true });
   await touchScene.getByRole('button', { name: /^Inspect ASSET-042/ }).tap();
   await touchScene.getByRole('region', { name: 'Selected fictional network node' }).getByText('ASSET-042', { exact: true }).waitFor();

@@ -16,10 +16,13 @@ try {
   page.setDefaultTimeout(10000);
   page.on('pageerror', error => results.errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') results.errors.push(message.text()); });
+  await page.goto(base);
+  await page.evaluate(() => window.localStorage.clear());
+  await page.reload();
   for (const width of [375, 390, 430, 768, 1024, 1280, 1440, 1920]) {
     await page.setViewportSize({ width, height: 1000 });
     await page.goto(base);
-    await page.locator('.ch-home--dark h1').waitFor();
+    await page.locator('.ch-home h1').waitFor();
     await page.waitForTimeout(100);
     assert.equal(await page.locator('main h1').count(), 1);
     const geometry = await page.evaluate(() => ({ width: document.documentElement.clientWidth, scroll: document.documentElement.scrollWidth }));
@@ -27,13 +30,11 @@ try {
     const audit = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
     results.accessibility.push({ width, violations: audit.violations.map(item => ({ id: item.id, nodes: item.nodes.map(node => ({ target: node.target, failure: node.failureSummary })) })) });
     results.layouts.push(`${width}: single H1 and no page overflow`);
-    const onboarding = page.locator('dialog.mode-onboarding');
-    if (await onboarding.count()) { await onboarding.locator('.mode-card--business').click(); await onboarding.waitFor({ state: 'hidden' }); }
     if (width === 1440 || width === 390) await page.screenshot({ path: `reports/landing-${width}.png`, fullPage: false });
   }
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.goto(base);
-  await page.locator('.ch-home--dark h1').waitFor();
+  await page.locator('.ch-home h1').waitFor();
   await page.getByRole('button', { name: 'Explore Rakshak AI', exact: true }).click();
   assert.equal(await page.evaluate(() => document.activeElement?.id), 'rakshak-section');
   const workspace = page.getByRole('region', { name: 'Rakshak AI interactive command center demo', exact: true });
@@ -51,10 +52,10 @@ try {
   await page.locator('.pg-contact h1').waitFor();
   assert.equal(await page.evaluate(() => document.body.classList.contains('home-dark-mode')), false);
   assert.equal(await page.locator('.shell-navbar').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(255, 255, 255)');
-  await page.goBack();
-  await page.locator('.ch-home--dark').waitFor();
-  assert.equal(await page.evaluate(() => document.body.classList.contains('home-dark-mode')), true);
-  results.interactions.push('Contact CTA works; dark shell removed on leaving home and restored with history');
+  await page.goto(base);
+  await page.locator('.ch-home').waitFor();
+  assert.equal(await page.evaluate(() => document.body.classList.contains('home-dark-mode')), false);
+  results.interactions.push('Contact CTA works and light shell remains consistent after returning home');
   await page.setViewportSize({ width: 390, height: 844 });
   const menu = page.getByRole('button', { name: 'Open navigation menu' });
   await menu.click();
@@ -66,16 +67,16 @@ try {
   await page.keyboard.press('Escape');
   assert.equal(await menu.getAttribute('aria-expanded'), 'false');
   assert.equal(await menu.evaluate(el => el === document.activeElement), true);
-  results.interactions.push('Dark mobile menu focus containment, Escape and focus restoration');
+  results.interactions.push('Light mobile menu focus containment, Escape and focus restoration');
   for (const route of ['/about', '/services', '/pricing', '/rakshak-ai', '/products', '/approach', '/responsible-disclosure']) {
     await page.goto(`${base}${route}`);
     await page.locator('.route-view h1').waitFor();
     assert.equal(await page.evaluate(() => document.body.classList.contains('home-dark-mode')), false);
     assert.equal(await page.locator('.shell-navbar').evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(255, 255, 255)');
   }
-  results.interactions.push('Unrelated routes retain their light navigation and no homepage theme');
+  results.interactions.push('All routes retain the light institutional shell');
   await page.goto(base);
-  await page.locator('.ch-home--dark h1').waitFor();
+  await page.locator('.ch-home h1').waitFor();
   await page.setViewportSize({ width: 1440, height: 1000 });
   await page.screenshot({ path: 'reports/landing-full.png', fullPage: true });
   const violations = results.accessibility.reduce((sum, audit) => sum + audit.violations.length, 0);
